@@ -1,0 +1,767 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes'?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'   width='1290' height='1055' viewBox='0 0 1290 1055' >
+  <script type='text/ecmascript'>
+  <![CDATA[
+  function hghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','highlight');  }  }
+  function uhghl(el) { for ( var i in el ){ var elem = document.getElementById(el[i]); if ( elem != null ) elem.setAttribute('class','scene'); }  } 
+  ]]>
+  </script> 
+
+<style type='text/css'>
+  text                { fill:#000000; font-family: Tahoma, 'Trebuchet MS', Dialog; font-size:11px; }
+  a text:hover        { fill:#94025f; text-shadow: 0px 0px 6px #d0ce00; font-size:13px; }
+  text.highlight      { fill:#94025f; text-shadow: 0px 0px 4px #eac533; font-size:13px; }
+  text.colType        { fill:#b3b3b3; }
+  text.relName        { fill:#b09c7c; }
+  path                { stroke:#5c554f; stroke-width:1.15; fill:none; }
+  path                { stroke:#5c554f; stroke-width:1.15; fill:none;}
+  path.virtual        { stroke:#b7642d; }
+  path.logo           { fill:#fbeac0;fill-opacity:1;stroke-width:0.3;stroke:#222222; }
+  path.dotted         { stroke-dasharray:4,2; }
+  path.scene          { stroke-width:10; opacity:0;}
+  path.highlight      { stroke-width:5; stroke:#c1a662; opacity:0.6;}
+  rect.entity         { fill:#ffffff; stroke:#aaa; stroke-width:1;shape-rendering:crispEdges;filter:url(#shadow); }
+  line.delim          { stroke-width:1; shape-rendering:crispEdges; }
+  text.callout        { fill:#000000; font-family: Tahoma, 'Trebuchet MS', Dialog; font-size:12px; }
+  rect.callout        { fill:url(#calloutGradient); stroke:#bebdbd; stroke-width:0.5; filter: url(#shadow);}
+  rect.grp            { stroke:#b1b1b1; stroke-width:1.7; opacity:0.8; }
+  path.st0            { fill:#ececec;fill-opacity:1;stroke-width:0.6;stroke:#aaaaaa; }
+</style>
+<defs>
+  <pattern id='layoutBgA' patternUnits='userSpaceOnUse'  width='10' height='20' x='0' y='0' viewBox='0 0 5 10'>  
+     <line x1='-2' y1='1' x2='7' y2='10' stroke='#f3f3f3' stroke-width='.5'/>  
+     <line x1='-2' y1='6' x2='7' y2='15' stroke='#f3f3f3' stroke-width='.5'/>  
+     <line x1='-2' y1='-4' x2='7' y2='5' stroke='#f3f3f3' stroke-width='.5'/>  
+  </pattern>  
+  <radialGradient id='layoutBgB' gradientUnits='userSpaceOnUse' cx='50%' cy='50%' r='75%' fx='46%' fy='22%'>
+     <stop offset='0%' stop-opacity='.2' stop-color='#f5f5f5' />  
+     <stop offset='100%' stop-color='#efefef' />  
+  </radialGradient>
+  <pattern id='layoutBgTr' patternUnits='userSpaceOnUse'  width='300' height='300' x='0' y='0' viewBox='0 0 300 300'>  
+  <path class='st0' d='m 62.011835,91.267143 c 3.536475,3.175214 2.262669,8.705999 -1.637711,11.015197 -3.594697,5.8423 -6.34682,-2.892623 -9.715478,-4.653898 -5.609222,-2.838926 2.050802,-6.680123 4.77004,-8.319046 2.334696,-0.724067 4.935143,0.312302 6.583149,1.957747 z m -2.720492,2.538595 c -2.698397,-3.517732 -9.282815,1.269287 -3.69635,3.568637 2.765331,5.605665 7.052809,-0.56184 3.69635,-3.568637 z' />
+  <path class='st0' d='m 72.25864,84.624638 c 4.108046,3.143003 -0.737059,6.895259 -1.994918,8.323564 -3.586718,5.561143 -6.495079,-4.197379 -10.07759,-5.582178 -4.443422,-1.088878 1.349298,-7.249213 2.503526,-2.503449 2.464639,4.517161 2.304019,-3.70697 6.291113,-1.995914 1.280083,0.137865 2.410691,0.864819 3.277869,1.757977 z m -2.646109,2.323242 c -4.797162,-3.078383 -2.810517,6.305507 0.515161,1.990646 0.296432,-0.688582 0.01209,-1.493412 -0.515161,-1.990646 z' />
+  <path class='st0' d='m 78.230641,79.436735 c 4.142121,3.027466 -2.020102,10.435276 -3.450543,5.477315 3.306312,-5.248112 -9.186019,-2.220094 -5.805994,-8.77679 -0.544141,-3.93011 6.797826,-2.102227 3.386015,0.245477 -0.181085,2.915838 4.637371,1.019311 5.870522,3.053982 z' />
+  <path class='st0' d='m 82.744502,72.597397 c -4.901605,1.926521 1.146497,6.285555 2.559694,2.225783 6.21817,3.539297 -6.640186,8.416664 -7.590325,1.997457 -2.24365,-2.914883 4.026676,-10.148618 5.030631,-4.22324 z' />
+  <path class='st0' d='m 90.727458,64.259158 c 1.583987,1.690029 3.321317,3.2696 4.81267,5.026353 -2.535706,6.849794 -6.445583,-5.918773 -8.388458,-0.167017 0.782768,2.03426 5.877405,3.752079 2.670979,5.711199 -3.315119,1.519161 -5.782422,-5.157931 -8.858893,-6.780537 -4.229842,-1.139816 1.510134,-7.074128 2.586227,-2.385939 3.141198,5.495193 1.840537,-5.598295 7.177489,-1.404062 z' />
+  <path class='st0' d='m 99.622027,58.374253 c 1.493293,1.9548 -6.281936,7.024659 -0.885258,4.740447 0.386238,-4.434477 6.131941,-1.133173 2.175851,1.618005 -4.421491,6.12739 -13.666659,-3.151506 -7.058299,-7.136537 1.785129,-1.119329 4.348209,-0.743179 5.767706,0.778085 z m -2.900824,1.89746 c -3.608188,-2.208543 -2.280489,5.00803 -0.12563,0.329531 z' />
+  <path class='st0' d='m 115.18023,50.570441 c -1.61703,5.201678 -4.6204,-0.364502 -7.01598,-1.749619 -4.40977,2.122562 4.89641,4.913939 1.89606,7.018157 -2.48061,3.877635 -4.11404,-4.060614 -7.01192,-2.6391 -1.76318,3.107252 7.28394,6.252304 0.87346,7.876177 -1.74515,-2.956649 -9.055498,-5.610518 -3.950378,-8.66062 1.696478,1.897023 1.770418,-5.43503 5.347308,-3.072411 -0.44014,-5.474701 6.11995,-4.950882 7.7846,-0.815355 0.69076,0.682329 1.39587,1.351469 2.07685,2.042771 z' />
+  <path class='st0' d='m 120.54891,39.417125 c 2.50681,1.334124 4.80466,4.941837 0.75044,5.297362 -0.46414,1.89865 -5.25369,5.602652 -8.01742,1.815475 -3.87345,-2.809139 -0.0676,-7.603869 2.3036,-8.133924 1.6795,-3.853018 3.16703,-1.199465 4.96338,1.021087 z m -2.2464,2.175828 c -4.8049,-2.992167 -3.08987,6.380358 0.42374,2.036159 0.33052,-0.677508 0.12099,-1.525836 -0.42374,-2.036159 z' />
+  <path class='st0' d='m 128.50836,24.06821 c -5.10403,3.035506 3.20535,6.383175 5.05938,9.450276 -0.91853,2.95886 -4.06493,3.650723 -5.34691,0.265618 -2.25715,-2.089033 -4.65672,-6.948595 -7.07024,-2.584686 -4.71758,-3.764394 3.81217,-5.812054 5.12382,-9.226328 0.75738,0.677487 1.38637,1.498638 2.23389,2.095175 z' />
+  <path class='st0' d='m 137.14366,22.299812 c -3.09615,2.259885 0.71537,4.412454 1.99042,6.435866 -3.08975,5.080354 -5.91384,-2.98648 -8.92144,-4.094939 1.44369,-3.219573 3.3497,-1.335928 4.27156,-4.41058 0.97822,-0.894325 1.75044,1.871047 2.65946,2.069653 z' />
+  <path class='st0' d='m 136.85093,14.890174 c 2.31562,5.283511 -7.17975,1.771993 -1.29675,-0.475107 l 0.7108,0.08973 z m 4.867,5.317354 c 2.56912,1.439678 4.26517,4.725219 0.30678,5.233637 -1.56592,-3.098864 -9.51683,-5.749448 -3.64502,-8.633714 1.17746,0.325095 2.15375,2.591149 3.33824,3.400077 z' />
+  <path class='st0' d='m 149.95578,11.976423 c 2.50679,1.334142 4.80455,4.94192 0.75041,5.297394 -0.4641,1.898604 -5.25368,5.602645 -8.0174,1.81545 -3.87347,-2.80918 -0.0676,-7.603844 2.30366,-8.133968 1.67949,-3.8530525 3.16695,-1.1993573 4.96333,1.021124 z m -2.24641,2.175828 c -4.80489,-2.992177 -3.08986,6.380343 0.42374,2.036167 0.33055,-0.677518 0.121,-1.52585 -0.42374,-2.036167 z' />
+  <path class='st0' d='m 153.26135,7.538431 c 2.60497,1.5799548 6.03999,5.944272 1.08117,6.050232 -2.53319,-3.231828 -7.20316,-6.4304525 -8.84748,-9.4582682 1.89121,-2.8664883 3.78452,-2.247699 5.38514,0.8929426 0.78017,0.8503859 1.57195,1.6911437 2.38118,2.5150667 z' />
+  </pattern>  
+  <linearGradient id='groupUnderTitleLine' x1='0%' y1='0%' x2='100%' y2='0%' >
+          <stop offset='0%' stop-color='#999999' stop-opacity='0.7'/> 
+          <stop offset='100%' stop-color='#999999' stop-opacity='0' /> 
+   </linearGradient>
+  <radialGradient id='calloutGradient' cx='25%' cy='20%' r='80%' fx='10%' fy='10%'>
+	   <stop offset='0%' stop-color='#ffffff' />
+    <stop offset='100%' stop-color='#f8f6d1' />
+  </radialGradient>
+  <filter id='shadow' width='120%' height='120%'> 
+      <feOffset result='offOut' in='SourceGraphic' dx='1' dy='1' /> 
+      <feColorMatrix result='matrixOut' in='offOut' type='matrix' 
+      values='0.1 0 0 0 0 0 0.4 0 0 0 0 0 0.6 0 0 0 0 0 0.3 0' /> 
+      <feGaussianBlur result='blurOut' in='matrixOut' stdDeviation='3' /> 
+      <feBlend in='SourceGraphic' in2='blurOut' mode='normal' /> 
+    </filter> 
+  <filter id='fkShadow' height='130%'> 
+    <feGaussianBlur in='SourceAlpha' stdDeviation='1.5'/> <!-- stdDeviation is how much to blur -->
+    <feOffset dx='1.2' dy='1.2' result='offsetblur'/> <!-- how much to offset -->
+    <feMerge>
+    <feMergeNode/> <!-- this contains the offset blurred image -->
+    <feMergeNode in='SourceGraphic'/> <!-- this contains the element that the filter is applied to -->
+    </feMerge>
+  </filter>
+  <radialGradient id='legendGradient' fx='5%' fy='5%' r='75%' spreadMethod='pad'>
+          <stop offset='0%' stop-color='#eefbf2' stop-opacity='1'/> 
+          <stop offset='100%' stop-color='#cff9cb' stop-opacity='1' /> 
+   </radialGradient>
+  <symbol id='calloutArrowDown' overflow='visible' >
+      <path d='M 0,0 L 7,11 L 15,0 z' style='fill:#f8f6d1;stroke:none; filter: url(#shadow);' />
+      <path d='M 0,0 L 7,11 L 15,0' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='calloutArrowUp' overflow='visible' >
+      <path d='M 0,15 L 7,3 L 15,15 z' style='fill:#ffffff; stroke:none; filter: url(#shadow);' />
+      <path d='M 0,15 L 7,3 L 15,15' style='stroke:#bebdbd; stroke-width:0.5;' />
+  </symbol>
+  <symbol id='pk' overflow='visible' >
+    <g transform='scale(0.99)'>
+     <path style='fill:#fffa7d;stroke:#765f03;stroke-width:0.6;stroke-linecap:round;stroke-linejoin:round;'
+        d='M 9.3678877,3.5695485 C 9.1030218,3.2729386 9.0796382,2.7628519 9.3396185,2.4517097 9.5449651,2.1956495 9.9040386,2.0980533 10.199638,2.2169415 10.533525,2.3415459 10.775153,2.706942 10.750675,3.0842709 10.737029,3.3980003 10.541153,3.699122 10.258248,3.8066067 9.966649,3.9250429 9.6169668,3.8418805 9.4008073,3.6062324 9.3894892,3.5943518 9.3785264,3.582104 9.3678886,3.5695487 z M 11.226617,6.9916004 C 11.888137,6.3548946 12.293488,5.4172188 12.311087,4.442353 12.378144,2.7379364 11.248678,1.0541269 9.7322318,0.44767357 8.3887112,-0.1280313 6.7865012,0.26822889 5.8918395,1.4007929 5.080823,2.3839145 4.9336815,3.8452096 5.3635544,5.101615 L 4.3670905,5.315913 C 4.0664984,5.3682645 4.0967703,5.6316724 4.2574957,5.8208829 L 4.9124,6.5655244 4.1543436,7.2512357 3.2136002,7.2163506 3.1674775,8.5586827 2.0406832,8.5086512 1.5965306,8.9299953 1.5471661,10.179833 0.75616674,10.195223 0.2112857,10.758575 0.15354288,11.735988 0.07199052,12.765553 c 0.36440953,0.238225 0.79006967,0.195492 1.44938278,-0.02675 L 6.3033562,8.1282037 6.8217102,8.6765688 C 6.9985465,8.8799427 7.3003699,8.7497574 7.358381,8.5016252 L 7.4938877,7.5084164 c 0.8537488,0.3985387 1.8303125,0.4711541 2.6851793,0.1427713 0.393927,-0.1407258 0.746858,-0.3701772 1.04755,-0.6595873 z'/>
+     <path d='M 6.8014948,6.3102123 0.15369063,13.024481 0.21560535,12.141962 6.0062342,6.2683782 z'
+        style='fill:#ffe5a5;fill-opacity:1;stroke:#854e31;stroke-width:0.06912433;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:3.00300009'/>
+    </g>
+  </symbol>
+  <symbol id='dist' overflow='visible' >
+    <g transform='scale(0.99)'>
+      <path style='fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;' d='M 0.177,11.431 12.28,11.449'/>
+      <path style='fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;' d='m 6.124,3.954 0.066,7.154 v 0'/>
+      <rect width='11.78' height='3.40' x='0.40' y='0.44' style='fill:#fffa7d;stroke:#765f03;stroke-width:0.6;' ry='0.83'/>
+      <rect width='11.78' height='3.40' x='0.40' y='5.609' style='fill:#fffa7d;stroke:#765f03;stroke-width:0.6;' ry='0.832'/>
+    </g>
+  </symbol>
+  <symbol id='unq' overflow='visible' >
+    <g transform='scale(0.99)'>
+      <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+         width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+      <path style='fill:white;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+         d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+         transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+      <text x='5.8' y='7.4' style='font-size:7px;fill:#8a8a8a;'>1</text>
+    </g>
+  </symbol>
+  <symbol id='idx' overflow='visible' >
+    <g transform='scale(0.99)'>
+      <rect style='fill:#fbea8e;stroke:#7e4d31;stroke-width:0.71934468;stroke-linecap:round;stroke-linejoin:round;'
+         width='2.29' height='8.43' x='7.48' y='-0.76' ry='1.14' transform='matrix(0.701,0.713,-0.727,0.685,0,0)' />
+      <path style='fill:white;stroke:#858585;stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;'
+         d='m 26.04,8.64 a 4.13,4.13 0 1 1 -8.26,0 4.13,4.13 0 1 1 8.26,0 z'
+         transform='matrix(1.025,0,0,0.987,-14.690,-3.862)' />
+    </g>
+  </symbol>
+  <symbol id='fk' overflow='visible' >
+    <g transform='scale(0.87)'>
+      <path style='fill:#f3e1b7;stroke:#7e471f;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+      d='M 12.48,0.33 7.07,0.89 9.067,2.974 0.329,11.731 1.073,12.597 9.811,3.841 11.77,5.78 z' />
+    </g>
+  </symbol>
+  <symbol id='ref' overflow='visible' >
+    <g transform='scale(0.87)'>
+      <path style='fill:#f3e1b7;stroke:#7e471f;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.10,12.70 5.31,12.15 3.40,10.06 11.82,1.32 11.11,0.45 2.68,9.19 0.80,7.24 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag0' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#b7d0f6;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag1' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#f4a393;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='flag2' overflow='visible' >
+    <g transform='scale(0.92)'>
+      <path style='fill:#77ec8b;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0.12,12.67 0.16,7.22 C 2.59,7.22 4.13,8.78 9.22,4.22 5.68,4.98 2.53,4.50 0.09,1.80 z'/>
+    </g>
+  </symbol>
+  <symbol id='nn' overflow='visible' >
+  <path style='stroke:#9b3e50;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;'
+          d='M 0,0 3,3 M 0,3 3,0 z'/>
+  </symbol>
+  <symbol id='view' overflow='visible' >
+    <g transform='scale(0.99)'>
+     <line x1='12' y1='6' x2='19' y2='0' stroke='black' stroke-width='0.5' />
+     <line x1='0' y1='6' x2='7' y2='0' stroke='black' stroke-width='0.5' />
+     <circle cx='3' cy='6' r='3' fill='#f9ebbc' stroke='black' stroke-width='0.5'/>
+     <circle cx='10' cy='6' r='3' fill='#f9ebbc' stroke='black' stroke-width='0.5'/>
+    </g>
+  </symbol>
+  <marker id='arrow01' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 7.500,3.750 L 15.000,3.750 L 7.500,0.000 L 15.000,3.750 L 7.500,7.500' />
+  </marker>
+  <marker id='arrow1' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 7.500,3.750 L 15.000,3.750 L 7.500,0.000 L 15.000,3.750 L 7.500,7.500' />
+  </marker>
+  <marker id='foot01' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 0.00,3.75 L 15.00,3.75 z' />
+    <circle cx='11.25' cy='3.75' r='2.50' style='fill:white;stroke:#5e554d;' />
+    <path d='M 3.75,0.00 L 3.75, 7.50 z' />
+  </marker>
+  <marker id='foot0p' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 0.00,3.75 L 15.00,3.75 z' />
+    <circle cx='11.25' cy='3.75' r='2.50' style='fill:white;stroke:#5e554d;' />
+    <path d='M 0.00,0.00 L 7.50,3.75 L 0.00,7.50' />
+  </marker>
+  <marker id='foot1' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 0.00,3.75 L 15.00,3.75 z' />
+    <path d='M 7.50,0.00 L 7.50, 7.50 z' />
+    <path d='M 3.75,0.00 L 3.75, 7.50 z' />
+  </marker>
+  <marker id='foot1p' viewBox='0 0 15.00 7.50' refX='7.50' refY='3.75' markerUnits='strokeWidth' markerWidth='15.00' markerHeight='7.50' orient='auto'>
+    <path d='M 0.00,3.75 L 15.00,3.75 z' />
+    <path d='M 7.50,0.00 L 7.50, 7.50 z' />
+    <path d='M 0.00,0.00 L 7.50,3.75 L 0.00,7.50' />
+  </marker>
+  <linearGradient id='tbg_c8f5bf' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#fafcf9' /> 
+     <stop offset='100%' stop-color='#d0f5c8' /> 
+  </linearGradient>
+  <linearGradient id='tbg_f7f3ec' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#fcfbf9' /> 
+     <stop offset='100%' stop-color='#f5e5c8' /> 
+  </linearGradient>
+  <linearGradient id='tbg_ffffff' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#fcf9f9' /> 
+     <stop offset='100%' stop-color='#f5c8c8' /> 
+  </linearGradient>
+  <linearGradient id='tbg_bfd4f5' x1='0%' y1='0%' x2='0%' y2='100%' >
+     <stop offset='0%' stop-color='#f9fafc' /> 
+     <stop offset='100%' stop-color='#c8daf5' /> 
+  </linearGradient>
+</defs>
+
+<!-- == Desktop == -->
+<rect x='1' y='1' width='1288' height='1053' rx='7' ry='7' style='fill:url(#layoutBgB); stroke:#777777; stroke-width:0.5;' />
+<rect x='1' y='1' width='1288' height='1053' rx='7' ry='7' style='fill:url(#layoutBgA); stroke:#777777; stroke-width:0.5;' />
+<rect x='1' y='1' width='1288' height='1053' rx='7' ry='7' style='fill:url(#layoutBgTr);' />
+
+<!-- == Legend == -->
+<g transform='translate(10,10)'>
+  <rect x='10' y='10' width='330' height='56' rx='6' ry='6' style='fill:url(#legendGradient);filter:url(#shadow);'/> 
+  <text x='20' y='43'>somosmaquina</text> 
+  <text x='20' y='57' style='fill:#aaaaaa; font-size:11px;'><tspan>Move the mouse over tables &amp; columns to read the comments.</tspan></text> 
+<a xlink:href='https://www.dbschema.com'> <path class='logo' d='m 32.309685,20.963194 c 0.411708,4.732616 -4.298055,7.925636 -8.723583,6.970196 -6.616967,1.8448 -2.656457,-6.434594 -3.911969,-10.01566 -2.15469,-5.89407 6.06247,-3.508505 9.167655,-2.863689 2.199228,1.054873 3.389343,3.582089 3.467897,5.909153 z m -3.720955,0.01451 c 0.434195,-4.414565 -7.644142,-5.37533 -5.137307,0.107342 -1.812268,5.992146 5.532698,4.379388 5.137307,-0.107342 z' /> <path class='logo' d='m 44.329732,23.050637 c 0.850982,5.097305 -5.250434,4.558924 -7.144836,4.752415 -6.418993,1.64391 -1.872992,-7.49274 -3.541914,-10.942842 -2.499646,-3.817859 5.939283,-4.402698 3.538545,-0.13612 -1.287874,4.989123 4.215411,-1.154796 5.956717,2.809584 0.840273,0.970849 1.168829,2.272413 1.191488,3.516963 z m -3.519477,-0.09299 c -1.398216,-5.518069 -6.361061,2.717467 -0.984368,1.810718 0.686994,-0.30388 1.029454,-1.087638 0.984368,-1.810718 z' /> <path class='logo' d='m 52.234961,23.301163 c 0.954818,5.035675 -8.606408,6.284861 -6.262292,1.674914 6.000358,-1.604717 -5.188764,-7.870044 1.75972,-10.384908 2.288682,-3.253567 6.399287,3.075831 2.304111,2.48058 -2.124941,2.016587 2.688777,3.89858 2.198472,6.229403 z' /> <path class='logo' d='m 60.204336,21.349224 c -4.894917,-1.916474 -3.458707,5.391212 0.347494,3.37231 2.120589,6.821713 -10.599623,1.664746 -6.906229,-3.691132 0.354172,-3.663246 9.875349,-4.711252 6.558735,0.318822 z' /> <path class='logo' d='m 71.730617,20.654299 c 0.0013,2.316285 0.190131,4.655698 0.07825,6.958009 -6.532419,3.303565 -0.660423,-8.722256 -6.009639,-5.821653 -0.818815,2.024533 1.726403,6.746337 -1.95327,6.005484 -3.458346,-1.137537 -0.696275,-7.713407 -1.833252,-10.994208 -2.308916,-3.710131 5.93704,-4.164951 3.518609,0.0063 -1.462376,6.166445 5.169629,-2.857523 6.19931,3.846079 z' /> <path class='logo' d='m 82.245738,22.378957 c -0.24581,2.448954 -9.386766,0.8867 -3.885979,2.877055 3.312576,-2.99157 5.250902,3.334514 0.482647,2.665545 -7.415384,1.492275 -7.823196,-11.597641 -0.275476,-10.032117 2.068161,0.391458 3.682204,2.408824 3.678808,4.489517 z m -3.414436,-0.578473 c -1.124703,-4.072004 -5.087405,2.125488 -0.316922,0.156453 z' /> <path class='logo' d='m 98.936899,27.222794 c -4.73541,2.718339 -3.1239,-3.406557 -3.92611,-6.050494 -4.66985,-1.438471 0.21621,6.932413 -3.41219,6.438039 -4.46096,1.160054 -0.22824,-5.774711 -3.31526,-6.700429 -3.410722,1.082173 1.04451,9.536575 -4.745091,6.372895 0.746632,-3.355214 -2.776394,-10.269232 3.034971,-9.038963 -0.058,2.544602 5.00686,-2.785359 6.00342,1.37844 3.42021,-4.316316 7.851251,0.524966 6.24018,4.690538 0.0379,0.969988 0.0954,1.940046 0.12008,2.909974 z' /> <path class='logo' d='m 110.47859,22.686058 c 0.91826,2.682088 0.13016,6.890551 -3.0725,4.397004 -1.63641,1.077877 -7.664291,0.541832 -7.09365,-4.114836 -0.907891,-4.692933 5.14729,-5.625578 7.24058,-4.40354 3.85932,-1.686263 3.13176,1.271515 2.92557,4.121372 z m -3.12695,0.0704 c -1.46278,-5.460062 -6.61615,2.5826 -1.08221,1.782003 0.70431,-0.272594 1.13111,-1.037444 1.08221,-1.782003 z' /> </a>
+</g>
+
+<g transform='translate(0,110)'>
+<!-- == Group 'aseguradoras' == -->
+<rect class='grp' style='fill:#ecf0f7;stroke:#ced5e0' x='29' y='130' width='452' height='590' />
+<text x='40' y='145'>aseguradoras</text>
+<rect style='fill:url(#groupUnderTitleLine); stroke-width:2;' x='40' y='148' width='430' height='2' />
+
+<!-- == Group 'direcciones' == -->
+<rect class='grp' style='fill:#eef7ec;stroke:#d2e0ce' x='809' y='40' width='257' height='410' />
+<text x='820' y='55'>direcciones</text>
+<rect style='fill:url(#groupUnderTitleLine); stroke-width:2;' x='820' y='58' width='235' height='2' />
+
+<!-- == Group 'coberturas' == -->
+<rect class='grp' style='fill:#f7f3ec;stroke:#e0dace' x='539' y='580' width='272' height='305' />
+<text x='550' y='595'>coberturas</text>
+<rect style='fill:url(#groupUnderTitleLine); stroke-width:2;' x='550' y='598' width='250' height='2' />
+
+<!-- == Group 'autos' == -->
+<rect class='grp' style='fill:#ffffff;stroke:#e0cece' x='569' y='130' width='137' height='290' />
+<text x='580' y='145'>autos</text>
+<rect style='fill:url(#groupUnderTitleLine); stroke-width:2;' x='580' y='148' width='115' height='2' />
+
+<!-- == Fk 'direcciones_fk_direcciones_estados' == -->
+<path id='direcciones_fk_direcciones_estados'  onmouseover="hghl(['direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado','somosmaquina.estados.id'])" onmouseout="uhghl(['direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado','somosmaquina.estados.id'])" transform='translate(7,0)' class='scene' d='M 990 300 L 990,345' >
+	<title>Fk fk_direcciones_estados
+direcciones ref estados ( estado -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 990 300 L 990,345' ></path>
+<text x='1003' y='300' transform='rotate(90 1003,300)' title='Fk fk_direcciones_estados
+direcciones ref estados ( estado -&gt; id )' class='relName' style='fill:#80a877'>estado</text>
+<!-- == Fk 'direcciones_fk_direcciones_municipios' == -->
+<path id='direcciones_fk_direcciones_municipios'  onmouseover="hghl(['direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio','somosmaquina.municipios.id'])" onmouseout="uhghl(['direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio','somosmaquina.municipios.id'])" transform='translate(7,0)' class='scene' d='M 960 210 L 937,210 Q 930,210 930,202 L 930,142 Q 930,135 922,135 L 915,135' >
+	<title>Fk fk_direcciones_municipios
+direcciones ref municipios ( municipio -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 960 210 L 937,210 Q 930,210 930,202 L 930,142 Q 930,135 922,135 L 915,135' ></path>
+<text x='924' y='205' transform='rotate(0 924,205)' title='Fk fk_direcciones_municipios
+direcciones ref municipios ( municipio -&gt; id )' class='relName' style='fill:#80a877'>municipio</text>
+<!-- == Fk 'inmuebles_fk_inmuebles_direcciones' == -->
+<path id='inmuebles_fk_inmuebles_direcciones'  onmouseover="hghl(['inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp','somosmaquina.direcciones.cp'])" onmouseout="uhghl(['inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp','somosmaquina.direcciones.cp'])" transform='translate(7,0)' class='scene' d='M 915 225 L 960,225' >
+	<title>Fk fk_inmuebles_direcciones
+inmuebles ref direcciones ( cp )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 915 225 L 960,225' ></path>
+<text x='922' y='220' transform='rotate(0 922,220)' title='Fk fk_inmuebles_direcciones
+inmuebles ref direcciones ( cp )' class='relName' style='fill:#80a877'>cp</text>
+<!-- == Fk 'inmuebles_fk_inmuebles_giros' == -->
+<path id='inmuebles_fk_inmuebles_giros'  onmouseover="hghl(['inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro','somosmaquina.giros.id'])" onmouseout="uhghl(['inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro','somosmaquina.giros.id'])" transform='translate(7,0)' class='scene' d='M 870 300 L 870,330' >
+	<title>Fk fk_inmuebles_giros
+inmuebles ref giros ( giro -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 870 300 L 870,330' ></path>
+<text x='883' y='300' transform='rotate(90 883,300)' title='Fk fk_inmuebles_giros
+inmuebles ref giros ( giro -&gt; id )' class='relName' style='fill:#80a877'>giro</text>
+<!-- == Fk 'coberturas_fk_coberturas_deducibles' == -->
+<path id='coberturas_fk_coberturas_deducibles'  onmouseover="hghl(['coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible','somosmaquina.deducibles.id'])" onmouseout="uhghl(['coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible','somosmaquina.deducibles.id'])" transform='translate(7,0)' class='scene' d='M 645 630 L 690,630' >
+	<title>Fk fk_coberturas_deducibles
+coberturas ref deducibles ( deducible -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 645 630 L 690,630' ></path>
+<text x='652' y='625' transform='rotate(0 652,625)' title='Fk fk_coberturas_deducibles
+coberturas ref deducibles ( deducible -&gt; id )' class='relName' style='fill:#a89a77'>deducible</text>
+<!-- == Fk 'pagos_fk_pagos_polizas' == -->
+<path id='pagos_fk_pagos_polizas'  onmouseover="hghl(['pagos_fk_pagos_polizas','somosmaquina.pagos.poliza','somosmaquina.polizas.id'])" onmouseout="uhghl(['pagos_fk_pagos_polizas','somosmaquina.pagos.poliza','somosmaquina.polizas.id'])" transform='translate(7,0)' class='scene' d='M 225 195 L 150,195' >
+	<title>Fk fk_pagos_polizas
+pagos ref polizas ( poliza -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 225 195 L 150,195' ></path>
+<text x='205' y='190' transform='rotate(0 205,190)' title='Fk fk_pagos_polizas
+pagos ref polizas ( poliza -&gt; id )' class='relName' style='fill:#778aa8'>poliza</text>
+<!-- == Fk 'config_auto_fk_config_auto_aseguradoras' == -->
+<path id='config_auto_fk_config_auto_aseguradoras'  onmouseover="hghl(['config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora','somosmaquina.aseguradoras.id'])" transform='translate(7,0)' class='scene' d='M 570 225 L 382,225 Q 375,225 375,232 L 375,405' >
+	<title>Fk fk_config_auto_aseguradoras
+config_auto ref aseguradoras ( aseguradora -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 570 225 L 382,225 Q 375,225 375,232 L 375,405' ></path>
+<text x='516' y='220' transform='rotate(0 516,220)' title='Fk fk_config_auto_aseguradoras
+config_auto ref aseguradoras ( aseguradora -&gt; id )' class='relName' style='fill:#a87777'>aseguradora</text>
+<!-- == Fk 'polizas_fk_polizas_comercios' == -->
+<path id='polizas_fk_polizas_comercios'  onmouseover="hghl(['polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','somosmaquina.comercios.id'])" onmouseout="uhghl(['polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','somosmaquina.comercios.id'])" transform='translate(7,0)' class='scene' d='M 150 300 L 195,300' >
+	<title>Fk fk_polizas_comercios
+polizas ref comercios ( comercio -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 150 300 L 195,300' ></path>
+<text x='157' y='295' transform='rotate(0 157,295)' title='Fk fk_polizas_comercios
+polizas ref comercios ( comercio -&gt; id )' class='relName' style='fill:#778aa8'>comercio</text>
+<!-- == Fk 'polizas_fk_polizas_productos' == -->
+<path id='polizas_fk_polizas_productos'  onmouseover="hghl(['polizas_fk_polizas_productos','somosmaquina.polizas.producto','somosmaquina.productos.id'])" onmouseout="uhghl(['polizas_fk_polizas_productos','somosmaquina.polizas.producto','somosmaquina.productos.id'])" transform='translate(7,0)' class='scene' d='M 75 330 L 75,555' >
+	<title>Fk fk_polizas_productos
+polizas ref productos ( producto -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 75 330 L 75,555' ></path>
+<text x='88' y='330' transform='rotate(90 88,330)' title='Fk fk_polizas_productos
+polizas ref productos ( producto -&gt; id )' class='relName' style='fill:#778aa8'>producto</text>
+<!-- == Fk 'polizas_fk_polizas_beneficiario' == -->
+<path id='polizas_fk_polizas_beneficiario'  onmouseover="hghl(['polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario','somosmaquina.beneficiario.id'])" onmouseout="uhghl(['polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario','somosmaquina.beneficiario.id'])" transform='translate(7,0)' class='scene' d='M 45 300 L 22,300 Q 15,300 15,307 L 15,877 Q 15,885 22,885 L 712,885 Q 720,885 720,877 L 720,870' >
+	<title>Fk fk_polizas_beneficiario
+polizas ref beneficiario ( beneficiario -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 45 300 L 22,300 Q 15,300 15,307 L 15,877 Q 15,885 22,885 L 712,885 Q 720,885 720,877 L 720,870' ></path>
+<text x='-3' y='295' transform='rotate(0 -3,295)' title='Fk fk_polizas_beneficiario
+polizas ref beneficiario ( beneficiario -&gt; id )' class='relName' style='fill:#778aa8'>beneficiario</text>
+<!-- == Fk 'polizas_fk_polizas_tarifas' == -->
+<path id='polizas_fk_polizas_tarifas'  onmouseover="hghl(['polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa','somosmaquina.tarifas.id'])" onmouseout="uhghl(['polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa','somosmaquina.tarifas.id'])" transform='translate(7,0)' class='scene' d='M 120 330 L 120,375' >
+	<title>Fk fk_polizas_tarifas
+polizas ref tarifas ( tarifa -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 120 330 L 120,375' ></path>
+<text x='133' y='330' transform='rotate(90 133,330)' title='Fk fk_polizas_tarifas
+polizas ref tarifas ( tarifa -&gt; id )' class='relName' style='fill:#778aa8'>tarifa</text>
+<!-- == Fk 'productos_fk_productos_aseguradoras' == -->
+<path id='productos_fk_productos_aseguradoras'  onmouseover="hghl(['productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','somosmaquina.aseguradoras.id'])" transform='translate(7,0)' class='scene' d='M 135 555 L 135,517 Q 135,510 142,510 L 255,510' >
+	<title>Fk fk_productos_aseguradoras
+productos ref aseguradoras ( aseguradora -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 135 555 L 135,517 Q 135,510 142,510 L 255,510' ></path>
+<text x='137' y='550' transform='rotate(270 137,550)' title='Fk fk_productos_aseguradoras
+productos ref aseguradoras ( aseguradora -&gt; id )' class='relName' style='fill:#778aa8'>aseguradora</text>
+<!-- == Fk 'webservices_fk_webservices_configuraciones' == -->
+<path id='webservices_fk_webservices_configuraciones'  onmouseover="hghl(['webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion','somosmaquina.configuraciones.id'])" onmouseout="uhghl(['webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion','somosmaquina.configuraciones.id'])" transform='translate(7,0)' class='scene' d='M 285 585 L 345,585' >
+	<title>Fk fk_webservices_configuraciones
+webservices ref configuraciones ( configuracion -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 285 585 L 345,585' ></path>
+<text x='292' y='580' transform='rotate(0 292,580)' title='Fk fk_webservices_configuraciones
+webservices ref configuraciones ( configuracion -&gt; id )' class='relName' style='fill:#778aa8'>configuracion</text>
+<!-- == Fk 'suma_asegurada_fk_suma_asegurada_coberturas' == -->
+<path id='suma_asegurada_fk_suma_asegurada_coberturas'  onmouseover="hghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion','somosmaquina.coberturas.seccion'])" onmouseout="uhghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion','somosmaquina.coberturas.seccion'])" transform='translate(7,0)' class='scene' d='M 585 735 L 585,720' >
+	<title>Fk fk_suma_asegurada_coberturas
+suma_asegurada ref coberturas ( seccion )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 585 735 L 585,720' ></path>
+<text x='587' y='730' transform='rotate(270 587,730)' title='Fk fk_suma_asegurada_coberturas
+suma_asegurada ref coberturas ( seccion )' class='relName' style='fill:#a89a77'>seccion</text>
+<!-- == Fk 'beneficiario_fk_beneficiario_direcciones' == -->
+<path id='beneficiario_fk_beneficiario_direcciones'  onmouseover="hghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','somosmaquina.direcciones.cp'])" onmouseout="uhghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','somosmaquina.direcciones.cp'])" transform='translate(7,0)' class='scene' d='M 765 735 L 765,727 Q 765,720 772,720 L 937,720 Q 945,720 945,712 L 945,277 Q 945,270 952,270 L 960,270' >
+	<title>Fk fk_beneficiario_direcciones
+beneficiario ref direcciones ( cp )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot0p)' marker-end='url(#arrow1)'    d='M 765 735 L 765,727 Q 765,720 772,720 L 937,720 Q 945,720 945,712 L 945,277 Q 945,270 952,270 L 960,270' ></path>
+<text x='767' y='730' transform='rotate(270 767,730)' title='Fk fk_beneficiario_direcciones
+beneficiario ref direcciones ( cp )' class='relName' style='fill:#a89a77'>cp</text>
+<!-- == Fk 'configuraciones_fk_configuraciones_aseguradoras' == -->
+<path id='configuraciones_fk_configuraciones_aseguradoras'  onmouseover="hghl(['configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','somosmaquina.aseguradoras.id'])" transform='translate(7,0)' class='scene' d='M 375 570 L 375,540' >
+	<title>Fk fk_configuraciones_aseguradoras
+configuraciones ref aseguradoras ( aseguradora -&gt; id )</title>
+</path>
+<path transform='translate(7,0)' marker-start='url(#foot1p)' marker-end='url(#arrow1)'    d='M 375 570 L 375,540' ></path>
+<text x='377' y='565' transform='rotate(270 377,565)' title='Fk fk_configuraciones_aseguradoras
+configuraciones ref aseguradoras ( aseguradora -&gt; id )' class='relName' style='fill:#778aa8'>aseguradora</text>
+<!-- == Table 'municipios' == -->
+<rect class='entity' x='840' y='68' width='75' height='75' rx='7' ry='7' style='fill:url(#tbg_c8f5bf);stroke:#bcd8b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='840' y1='94' x2='915' y2='94'/>
+<line class='delim' x1='840' y1='94' x2='915' y2='94' style='stroke:#bcd8b6'/>
+<line class='delim' x1='855' y1='94' x2='855' y2='143' style='stroke:#bcd8b6'/>
+<line class='delim' x1='904' y1='94' x2='904' y2='143' style='stroke:#bcd8b6'/>
+<a xlink:href='#municipios'><text x='850' y='86'>municipios</text><title>Table somosmaquina.municipios</title></a>
+  <use id='nn' x='842' y='102' xlink:href='#nn'/><a xlink:href='#municipios.id'><use id='pk' x='842' y='101' xlink:href='#pk'/><title>Pk pk_municipios_id ( id ) </title></a>
+<a xlink:href='#municipios.id'><text id='somosmaquina.municipios.id' x='858' y='111' onmouseover="hghl(['direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio','direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio'])" onmouseout="uhghl(['direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio','direcciones_fk_direcciones_municipios','somosmaquina.direcciones.municipio'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#municipios.id'><use id='ref' x='904' y='101' xlink:href='#ref'/><title>Referred by direcciones ( municipio -&gt; id ) 
+Referred by direcciones ( municipio -&gt; id ) </title></a>
+  <a xlink:href='#municipios.nombre'><text id='somosmaquina.municipios.nombre' x='858' y='126'>nombre</text><title>nombre
+varchar(50)</title></a>
+<text x='912' y='123' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'estados' == -->
+<rect class='entity' x='975' y='353' width='75' height='75' rx='7' ry='7' style='fill:url(#tbg_c8f5bf);stroke:#bcd8b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='975' y1='379' x2='1050' y2='379'/>
+<line class='delim' x1='975' y1='379' x2='1050' y2='379' style='stroke:#bcd8b6'/>
+<line class='delim' x1='990' y1='379' x2='990' y2='428' style='stroke:#bcd8b6'/>
+<line class='delim' x1='1039' y1='379' x2='1039' y2='428' style='stroke:#bcd8b6'/>
+<a xlink:href='#estados'><text x='990' y='371'>estados</text><title>Table somosmaquina.estados</title></a>
+  <use id='nn' x='977' y='387' xlink:href='#nn'/><a xlink:href='#estados.id'><use id='pk' x='977' y='386' xlink:href='#pk'/><title>Pk pk_estados_id ( id ) </title></a>
+<a xlink:href='#estados.id'><text id='somosmaquina.estados.id' x='993' y='396' onmouseover="hghl(['direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado','direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado'])" onmouseout="uhghl(['direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado','direcciones_fk_direcciones_estados','somosmaquina.direcciones.estado'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#estados.id'><use id='ref' x='1039' y='386' xlink:href='#ref'/><title>Referred by direcciones ( estado -&gt; id ) 
+Referred by direcciones ( estado -&gt; id ) </title></a>
+  <a xlink:href='#estados.nombre'><text id='somosmaquina.estados.nombre' x='993' y='411'>nombre</text><title>nombre
+varchar(30)</title></a>
+<text x='1047' y='408' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'direcciones' == -->
+<rect class='entity' x='975' y='203' width='75' height='90' rx='7' ry='7' style='fill:url(#tbg_c8f5bf);stroke:#bcd8b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='975' y1='229' x2='1050' y2='229'/>
+<line class='delim' x1='975' y1='229' x2='1050' y2='229' style='stroke:#bcd8b6'/>
+<line class='delim' x1='990' y1='229' x2='990' y2='293' style='stroke:#bcd8b6'/>
+<line class='delim' x1='1039' y1='229' x2='1039' y2='293' style='stroke:#bcd8b6'/>
+<a xlink:href='#direcciones'><text x='983' y='221'>direcciones</text><title>Table somosmaquina.direcciones</title></a>
+  <use id='nn' x='977' y='237' xlink:href='#nn'/><a xlink:href='#direcciones.cp'><use id='pk' x='977' y='236' xlink:href='#pk'/><title>Pk pk_direcciones_cp ( cp ) </title></a>
+<a xlink:href='#direcciones.cp'><text id='somosmaquina.direcciones.cp' x='993' y='246' onmouseover="hghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp','inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp'])" onmouseout="uhghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','beneficiario_fk_beneficiario_direcciones','somosmaquina.beneficiario.cp','inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp','inmuebles_fk_inmuebles_direcciones','somosmaquina.inmuebles.cp'])">cp</text><title>cp
+* int</title></a>
+<a xlink:href='#direcciones.cp'><use id='ref' x='1039' y='236' xlink:href='#ref'/><title>Referred by beneficiario ( cp ) 
+Referred by beneficiario ( cp ) 
+Referred by beneficiario ( cp ) 
+Referred by inmuebles ( cp ) 
+Referred by inmuebles ( cp ) </title></a>
+  <a xlink:href='#direcciones.estado'><use id='idx' x='977' y='251' xlink:href='#idx'/><title>idx_direcciones_estado ( estado ) </title></a>
+<a xlink:href='#direcciones.estado'><text id='somosmaquina.direcciones.estado' x='993' y='261' onmouseover="hghl(['direcciones_fk_direcciones_estados','somosmaquina.estados.id'])" onmouseout="uhghl(['direcciones_fk_direcciones_estados','somosmaquina.estados.id'])">estado</text><title>estado
+int</title></a>
+<a xlink:href='#direcciones.estado'><use id='fk' x='1039' y='251' xlink:href='#fk'/><title>References estados ( estado -&gt; id ) </title></a>
+  <a xlink:href='#direcciones.municipio'><use id='idx' x='977' y='266' xlink:href='#idx'/><title>idx_direcciones_municipio ( municipio ) </title></a>
+<a xlink:href='#direcciones.municipio'><text id='somosmaquina.direcciones.municipio' x='993' y='276' onmouseover="hghl(['direcciones_fk_direcciones_municipios','somosmaquina.municipios.id'])" onmouseout="uhghl(['direcciones_fk_direcciones_municipios','somosmaquina.municipios.id'])">municipio</text><title>municipio
+int</title></a>
+<a xlink:href='#direcciones.municipio'><use id='fk' x='1039' y='266' xlink:href='#fk'/><title>References municipios ( municipio -&gt; id ) </title></a>
+
+<!-- == Table 'inmuebles' == -->
+<rect class='entity' x='855' y='203' width='60' height='90' rx='7' ry='7' style='fill:url(#tbg_c8f5bf);stroke:#bcd8b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='855' y1='229' x2='915' y2='229'/>
+<line class='delim' x1='855' y1='229' x2='915' y2='229' style='stroke:#bcd8b6'/>
+<line class='delim' x1='870' y1='229' x2='870' y2='293' style='stroke:#bcd8b6'/>
+<line class='delim' x1='904' y1='229' x2='904' y2='293' style='stroke:#bcd8b6'/>
+<a xlink:href='#inmuebles'><text x='858' y='221'>inmuebles</text><title>Table somosmaquina.inmuebles</title></a>
+  <use id='nn' x='857' y='237' xlink:href='#nn'/><a xlink:href='#inmuebles.id'><use id='pk' x='857' y='236' xlink:href='#pk'/><title>Pk pk_inmuebles_id ( id ) </title></a>
+<a xlink:href='#inmuebles.id'><text id='somosmaquina.inmuebles.id' x='873' y='246'>id</text><title>id
+* int</title></a>
+<text x='912' y='243' text-anchor='end' class='colType'>#</text>  <use id='nn' x='857' y='252' xlink:href='#nn'/><a xlink:href='#inmuebles.giro'><use id='idx' x='857' y='251' xlink:href='#idx'/><title>idx_inmuebles_giro ( giro ) </title></a>
+<a xlink:href='#inmuebles.giro'><text id='somosmaquina.inmuebles.giro' x='873' y='261' onmouseover="hghl(['inmuebles_fk_inmuebles_giros','somosmaquina.giros.id'])" onmouseout="uhghl(['inmuebles_fk_inmuebles_giros','somosmaquina.giros.id'])">giro</text><title>giro
+* int</title></a>
+<a xlink:href='#inmuebles.giro'><use id='fk' x='904' y='251' xlink:href='#fk'/><title>References giros ( giro -&gt; id ) </title></a>
+  <a xlink:href='#inmuebles.cp'><use id='idx' x='857' y='266' xlink:href='#idx'/><title>idx_inmuebles_cp ( cp ) </title></a>
+<a xlink:href='#inmuebles.cp'><text id='somosmaquina.inmuebles.cp' x='873' y='276' onmouseover="hghl(['inmuebles_fk_inmuebles_direcciones','somosmaquina.direcciones.cp'])" onmouseout="uhghl(['inmuebles_fk_inmuebles_direcciones','somosmaquina.direcciones.cp'])">cp</text><title>cp
+int</title></a>
+<a xlink:href='#inmuebles.cp'><use id='fk' x='904' y='266' xlink:href='#fk'/><title>References direcciones ( cp ) </title></a>
+
+<!-- == Table 'coberturas' == -->
+<rect class='entity' x='555' y='608' width='90' height='105' rx='7' ry='7' style='fill:url(#tbg_f7f3ec);stroke:#d8ccb6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='555' y1='634' x2='645' y2='634'/>
+<line class='delim' x1='555' y1='634' x2='645' y2='634' style='stroke:#d8ccb6'/>
+<line class='delim' x1='570' y1='634' x2='570' y2='713' style='stroke:#d8ccb6'/>
+<line class='delim' x1='634' y1='634' x2='634' y2='713' style='stroke:#d8ccb6'/>
+<a xlink:href='#coberturas'><text x='571' y='626'>coberturas</text><title>Table somosmaquina.coberturas</title></a>
+  <use id='nn' x='557' y='642' xlink:href='#nn'/><a xlink:href='#coberturas.id'><use id='pk' x='557' y='641' xlink:href='#pk'/><title>Pk pk_coberturas_id ( id ) </title></a>
+<a xlink:href='#coberturas.id'><text id='somosmaquina.coberturas.id' x='573' y='651'>id</text><title>id
+* int</title></a>
+<text x='642' y='648' text-anchor='end' class='colType'>#</text>  <use id='nn' x='557' y='657' xlink:href='#nn'/><a xlink:href='#coberturas.seccion'><use id='unq' x='557' y='656' xlink:href='#unq'/><title>Unq unq_coberturas_seccion ( seccion ) </title></a>
+<a xlink:href='#coberturas.seccion'><text id='somosmaquina.coberturas.seccion' x='573' y='666' onmouseover="hghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion','suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion'])" onmouseout="uhghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion','suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.suma_asegurada.seccion'])">seccion</text><title>seccion
+* int</title></a>
+<a xlink:href='#coberturas.seccion'><use id='ref' x='634' y='656' xlink:href='#ref'/><title>Referred by suma_asegurada ( seccion ) 
+Referred by suma_asegurada ( seccion ) </title></a>
+  <a xlink:href='#coberturas.descripcion'><text id='somosmaquina.coberturas.descripcion' x='573' y='681'>descripcion</text><title>descripcion
+varchar(300)</title></a>
+<text x='642' y='678' text-anchor='end' class='colType'>t</text>  <use id='nn' x='557' y='687' xlink:href='#nn'/><a xlink:href='#coberturas.deducible'><use id='idx' x='557' y='686' xlink:href='#idx'/><title>idx_coberturas_deducible ( deducible ) </title></a>
+<a xlink:href='#coberturas.deducible'><text id='somosmaquina.coberturas.deducible' x='573' y='696' onmouseover="hghl(['coberturas_fk_coberturas_deducibles','somosmaquina.deducibles.id'])" onmouseout="uhghl(['coberturas_fk_coberturas_deducibles','somosmaquina.deducibles.id'])">deducible</text><title>deducible
+* int</title></a>
+<a xlink:href='#coberturas.deducible'><use id='fk' x='634' y='686' xlink:href='#fk'/><title>References deducibles ( deducible -&gt; id ) </title></a>
+
+<!-- == Table 'deducibles' == -->
+<rect class='entity' x='705' y='608' width='90' height='90' rx='7' ry='7' style='fill:url(#tbg_f7f3ec);stroke:#d8ccb6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='705' y1='634' x2='795' y2='634'/>
+<line class='delim' x1='705' y1='634' x2='795' y2='634' style='stroke:#d8ccb6'/>
+<line class='delim' x1='720' y1='634' x2='720' y2='698' style='stroke:#d8ccb6'/>
+<line class='delim' x1='784' y1='634' x2='784' y2='698' style='stroke:#d8ccb6'/>
+<a xlink:href='#deducibles'><text x='722' y='626'>deducibles</text><title>Table somosmaquina.deducibles</title></a>
+  <use id='nn' x='707' y='642' xlink:href='#nn'/><a xlink:href='#deducibles.id'><use id='pk' x='707' y='641' xlink:href='#pk'/><title>Pk pk_deducibles_id ( id ) </title></a>
+<a xlink:href='#deducibles.id'><text id='somosmaquina.deducibles.id' x='723' y='651' onmouseover="hghl(['coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible','coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible'])" onmouseout="uhghl(['coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible','coberturas_fk_coberturas_deducibles','somosmaquina.coberturas.deducible'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#deducibles.id'><use id='ref' x='784' y='641' xlink:href='#ref'/><title>Referred by coberturas ( deducible -&gt; id ) 
+Referred by coberturas ( deducible -&gt; id ) </title></a>
+  <a xlink:href='#deducibles.descripcion'><text id='somosmaquina.deducibles.descripcion' x='723' y='666'>descripcion</text><title>descripcion
+varchar(200)</title></a>
+<text x='792' y='663' text-anchor='end' class='colType'>t</text>  <a xlink:href='#deducibles.monto'><text id='somosmaquina.deducibles.monto' x='723' y='681'>monto</text><title>monto
+double</title></a>
+<text x='792' y='678' text-anchor='end' class='colType'>#</text>
+<!-- == Table 'giros' == -->
+<rect class='entity' x='825' y='338' width='90' height='75' rx='7' ry='7' style='fill:url(#tbg_c8f5bf);stroke:#bcd8b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='825' y1='364' x2='915' y2='364'/>
+<line class='delim' x1='825' y1='364' x2='915' y2='364' style='stroke:#bcd8b6'/>
+<line class='delim' x1='840' y1='364' x2='840' y2='413' style='stroke:#bcd8b6'/>
+<line class='delim' x1='904' y1='364' x2='904' y2='413' style='stroke:#bcd8b6'/>
+<a xlink:href='#giros'><text x='855' y='356'>giros</text><title>Table somosmaquina.giros</title></a>
+  <use id='nn' x='827' y='372' xlink:href='#nn'/><a xlink:href='#giros.id'><use id='pk' x='827' y='371' xlink:href='#pk'/><title>Pk pk_giros_id ( id ) </title></a>
+<a xlink:href='#giros.id'><text id='somosmaquina.giros.id' x='843' y='381' onmouseover="hghl(['inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro','inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro'])" onmouseout="uhghl(['inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro','inmuebles_fk_inmuebles_giros','somosmaquina.inmuebles.giro'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#giros.id'><use id='ref' x='904' y='371' xlink:href='#ref'/><title>Referred by inmuebles ( giro -&gt; id ) 
+Referred by inmuebles ( giro -&gt; id ) </title></a>
+  <a xlink:href='#giros.descripcion'><text id='somosmaquina.giros.descripcion' x='843' y='396'>descripcion</text><title>descripcion
+varchar(300)</title></a>
+<text x='912' y='393' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'autos' == -->
+<rect class='entity' x='600' y='278' width='90' height='120' rx='7' ry='7' style='fill:url(#tbg_ffffff);stroke:#d8b6b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='600' y1='304' x2='690' y2='304'/>
+<line class='delim' x1='600' y1='304' x2='690' y2='304' style='stroke:#d8b6b6'/>
+<line class='delim' x1='615' y1='304' x2='615' y2='398' style='stroke:#d8b6b6'/>
+<line class='delim' x1='679' y1='304' x2='679' y2='398' style='stroke:#d8b6b6'/>
+<a xlink:href='#autos'><text x='628' y='296'>autos</text><title>Table somosmaquina.autos</title></a>
+  <use id='nn' x='602' y='312' xlink:href='#nn'/><a xlink:href='#autos.clave'><use id='pk' x='602' y='311' xlink:href='#pk'/><title>Pk pk_autos_clave ( clave ) </title></a>
+<a xlink:href='#autos.clave'><text id='somosmaquina.autos.clave' x='618' y='321'>clave</text><title>clave
+* int</title></a>
+<text x='687' y='318' text-anchor='end' class='colType'>#</text>  <a xlink:href='#autos.marca'><text id='somosmaquina.autos.marca' x='618' y='336'>marca</text><title>marca
+varchar(20)</title></a>
+<text x='687' y='333' text-anchor='end' class='colType'>t</text>  <a xlink:href='#autos.submarca'><text id='somosmaquina.autos.submarca' x='618' y='351'>submarca</text><title>submarca
+varchar(20)</title></a>
+<text x='687' y='348' text-anchor='end' class='colType'>t</text>  <a xlink:href='#autos.modelo'><text id='somosmaquina.autos.modelo' x='618' y='366'>modelo</text><title>modelo
+int</title></a>
+<text x='687' y='363' text-anchor='end' class='colType'>#</text>  <a xlink:href='#autos.descripcion'><text id='somosmaquina.autos.descripcion' x='618' y='381'>descripcion</text><title>descripcion
+varchar(200)</title></a>
+<text x='687' y='378' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'pagos' == -->
+<rect class='entity' x='240' y='158' width='90' height='120' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='240' y1='184' x2='330' y2='184'/>
+<line class='delim' x1='240' y1='184' x2='330' y2='184' style='stroke:#b6c3d8'/>
+<line class='delim' x1='255' y1='184' x2='255' y2='278' style='stroke:#b6c3d8'/>
+<line class='delim' x1='319' y1='184' x2='319' y2='278' style='stroke:#b6c3d8'/>
+<a xlink:href='#pagos'><text x='267' y='176'>pagos</text><title>Table somosmaquina.pagos</title></a>
+  <use id='nn' x='242' y='192' xlink:href='#nn'/><a xlink:href='#pagos.id'><use id='pk' x='242' y='191' xlink:href='#pk'/><title>Pk pk_pagos_id ( id ) </title></a>
+<a xlink:href='#pagos.id'><text id='somosmaquina.pagos.id' x='258' y='201'>id</text><title>id
+* int</title></a>
+<text x='327' y='198' text-anchor='end' class='colType'>#</text>  <a xlink:href='#pagos.monto'><text id='somosmaquina.pagos.monto' x='258' y='216'>monto</text><title>monto
+double</title></a>
+<text x='327' y='213' text-anchor='end' class='colType'>#</text>  <use id='nn' x='242' y='222' xlink:href='#nn'/><a xlink:href='#pagos.poliza'><use id='idx' x='242' y='221' xlink:href='#idx'/><title>idx_pagos_poliza ( poliza ) </title></a>
+<a xlink:href='#pagos.poliza'><text id='somosmaquina.pagos.poliza' x='258' y='231' onmouseover="hghl(['pagos_fk_pagos_polizas','somosmaquina.polizas.id'])" onmouseout="uhghl(['pagos_fk_pagos_polizas','somosmaquina.polizas.id'])">poliza</text><title>poliza
+* int</title></a>
+<a xlink:href='#pagos.poliza'><use id='fk' x='319' y='221' xlink:href='#fk'/><title>References polizas ( poliza -&gt; id ) </title></a>
+  <a xlink:href='#pagos.fecha'><text id='somosmaquina.pagos.fecha' x='258' y='246'>fecha</text><title>fecha
+date</title></a>
+<text x='327' y='243' text-anchor='end' class='colType'>d</text>  <a xlink:href='#pagos.forma_pago'><text id='somosmaquina.pagos.forma_pago' x='258' y='261'>forma_pago</text><title>forma_pago
+enum(efectivo,tarjeta,cheque,transferencia) </title></a>
+<text x='327' y='258' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'config_auto' == -->
+<rect class='entity' x='585' y='158' width='105' height='90' rx='7' ry='7' style='fill:url(#tbg_ffffff);stroke:#d8b6b6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='585' y1='184' x2='690' y2='184'/>
+<line class='delim' x1='585' y1='184' x2='690' y2='184' style='stroke:#d8b6b6'/>
+<line class='delim' x1='600' y1='184' x2='600' y2='248' style='stroke:#d8b6b6'/>
+<line class='delim' x1='679' y1='184' x2='679' y2='248' style='stroke:#d8b6b6'/>
+<a xlink:href='#config_auto'><text x='606' y='176'>config_auto</text><title>Table somosmaquina.config_auto</title></a>
+  <use id='nn' x='587' y='192' xlink:href='#nn'/><a xlink:href='#config_auto.id'><use id='pk' x='587' y='191' xlink:href='#pk'/><title>Pk pk_config_auto_id ( id ) </title></a>
+<a xlink:href='#config_auto.id'><text id='somosmaquina.config_auto.id' x='603' y='201'>id</text><title>id
+* int</title></a>
+<text x='687' y='198' text-anchor='end' class='colType'>#</text>  <a xlink:href='#config_auto.aseguradora'><use id='idx' x='587' y='206' xlink:href='#idx'/><title>idx_config_auto_aseguradora ( aseguradora ) </title></a>
+<a xlink:href='#config_auto.aseguradora'><text id='somosmaquina.config_auto.aseguradora' x='603' y='216' onmouseover="hghl(['config_auto_fk_config_auto_aseguradoras','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['config_auto_fk_config_auto_aseguradoras','somosmaquina.aseguradoras.id'])">aseguradora</text><title>aseguradora
+int</title></a>
+<a xlink:href='#config_auto.aseguradora'><use id='fk' x='679' y='206' xlink:href='#fk'/><title>References aseguradoras ( aseguradora -&gt; id ) </title></a>
+  <a xlink:href='#config_auto.formato'><text id='somosmaquina.config_auto.formato' x='603' y='231'>formato</text><title>formato
+json</title></a>
+
+<!-- == Table 'polizas' == -->
+<rect class='entity' x='60' y='173' width='90' height='150' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='60' y1='199' x2='150' y2='199'/>
+<line class='delim' x1='60' y1='199' x2='150' y2='199' style='stroke:#b6c3d8'/>
+<line class='delim' x1='75' y1='199' x2='75' y2='323' style='stroke:#b6c3d8'/>
+<line class='delim' x1='139' y1='199' x2='139' y2='323' style='stroke:#b6c3d8'/>
+<a xlink:href='#polizas'><text x='86' y='191'>polizas</text><title>Table somosmaquina.polizas</title></a>
+  <use id='nn' x='62' y='207' xlink:href='#nn'/><a xlink:href='#polizas.id'><use id='pk' x='62' y='206' xlink:href='#pk'/><title>Pk pk_polizas_id ( id ) </title></a>
+<a xlink:href='#polizas.id'><text id='somosmaquina.polizas.id' x='78' y='216' onmouseover="hghl(['pagos_fk_pagos_polizas','somosmaquina.pagos.poliza','pagos_fk_pagos_polizas','somosmaquina.pagos.poliza'])" onmouseout="uhghl(['pagos_fk_pagos_polizas','somosmaquina.pagos.poliza','pagos_fk_pagos_polizas','somosmaquina.pagos.poliza'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#polizas.id'><use id='ref' x='139' y='206' xlink:href='#ref'/><title>Referred by pagos ( poliza -&gt; id ) 
+Referred by pagos ( poliza -&gt; id ) </title></a>
+  <use id='nn' x='62' y='222' xlink:href='#nn'/><a xlink:href='#polizas.comercio'><use id='idx' x='62' y='221' xlink:href='#idx'/><title>idx_polizas_comercio ( comercio ) </title></a>
+<a xlink:href='#polizas.comercio'><text id='somosmaquina.polizas.comercio' x='78' y='231' onmouseover="hghl(['polizas_fk_polizas_comercios','somosmaquina.comercios.id'])" onmouseout="uhghl(['polizas_fk_polizas_comercios','somosmaquina.comercios.id'])">comercio</text><title>comercio
+* int</title></a>
+<a xlink:href='#polizas.comercio'><use id='fk' x='139' y='221' xlink:href='#fk'/><title>References comercios ( comercio -&gt; id ) </title></a>
+  <a xlink:href='#polizas.producto'><use id='idx' x='62' y='236' xlink:href='#idx'/><title>idx_polizas_producto ( producto ) </title></a>
+<a xlink:href='#polizas.producto'><text id='somosmaquina.polizas.producto' x='78' y='246' onmouseover="hghl(['polizas_fk_polizas_productos','somosmaquina.productos.id'])" onmouseout="uhghl(['polizas_fk_polizas_productos','somosmaquina.productos.id'])">producto</text><title>producto
+int</title></a>
+<a xlink:href='#polizas.producto'><use id='fk' x='139' y='236' xlink:href='#fk'/><title>References productos ( producto -&gt; id ) </title></a>
+  <a xlink:href='#polizas.tarifa'><use id='idx' x='62' y='251' xlink:href='#idx'/><title>idx_polizas_tarifa ( tarifa ) </title></a>
+<a xlink:href='#polizas.tarifa'><text id='somosmaquina.polizas.tarifa' x='78' y='261' onmouseover="hghl(['polizas_fk_polizas_tarifas','somosmaquina.tarifas.id'])" onmouseout="uhghl(['polizas_fk_polizas_tarifas','somosmaquina.tarifas.id'])">tarifa</text><title>tarifa
+int</title></a>
+<a xlink:href='#polizas.tarifa'><use id='fk' x='139' y='251' xlink:href='#fk'/><title>References tarifas ( tarifa -&gt; id ) </title></a>
+  <a xlink:href='#polizas.url'><text id='somosmaquina.polizas.url' x='78' y='276'>url</text><title>url
+varchar(200)</title></a>
+<text x='147' y='273' text-anchor='end' class='colType'>t</text>  <a xlink:href='#polizas.detalle'><text id='somosmaquina.polizas.detalle' x='78' y='291'>detalle</text><title>detalle
+varchar(1000)</title></a>
+<text x='147' y='288' text-anchor='end' class='colType'>t</text>  <use id='nn' x='62' y='297' xlink:href='#nn'/><a xlink:href='#polizas.beneficiario'><use id='idx' x='62' y='296' xlink:href='#idx'/><title>idx_polizas_beneficiario ( beneficiario ) </title></a>
+<a xlink:href='#polizas.beneficiario'><text id='somosmaquina.polizas.beneficiario' x='78' y='306' onmouseover="hghl(['polizas_fk_polizas_beneficiario','somosmaquina.beneficiario.id'])" onmouseout="uhghl(['polizas_fk_polizas_beneficiario','somosmaquina.beneficiario.id'])">beneficiario</text><title>beneficiario
+* int</title></a>
+<a xlink:href='#polizas.beneficiario'><use id='fk' x='139' y='296' xlink:href='#fk'/><title>References beneficiario ( beneficiario -&gt; id ) </title></a>
+
+<!-- == Table 'productos' == -->
+<rect class='entity' x='45' y='563' width='105' height='90' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='45' y1='589' x2='150' y2='589'/>
+<line class='delim' x1='45' y1='589' x2='150' y2='589' style='stroke:#b6c3d8'/>
+<line class='delim' x1='60' y1='589' x2='60' y2='653' style='stroke:#b6c3d8'/>
+<line class='delim' x1='139' y1='589' x2='139' y2='653' style='stroke:#b6c3d8'/>
+<a xlink:href='#productos'><text x='70' y='581'>productos</text><title>Table somosmaquina.productos</title></a>
+  <use id='nn' x='47' y='597' xlink:href='#nn'/><a xlink:href='#productos.id'><use id='pk' x='47' y='596' xlink:href='#pk'/><title>Pk pk_productos_id ( id ) </title></a>
+<a xlink:href='#productos.id'><text id='somosmaquina.productos.id' x='63' y='606' onmouseover="hghl(['polizas_fk_polizas_productos','somosmaquina.polizas.producto','polizas_fk_polizas_productos','somosmaquina.polizas.producto'])" onmouseout="uhghl(['polizas_fk_polizas_productos','somosmaquina.polizas.producto','polizas_fk_polizas_productos','somosmaquina.polizas.producto'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#productos.id'><use id='ref' x='139' y='596' xlink:href='#ref'/><title>Referred by polizas ( producto -&gt; id ) 
+Referred by polizas ( producto -&gt; id ) </title></a>
+  <a xlink:href='#productos.descripcion'><text id='somosmaquina.productos.descripcion' x='63' y='621'>descripcion</text><title>descripcion
+varchar(200)</title></a>
+<text x='147' y='618' text-anchor='end' class='colType'>t</text>  <use id='nn' x='47' y='627' xlink:href='#nn'/><a xlink:href='#productos.aseguradora'><use id='idx' x='47' y='626' xlink:href='#idx'/><title>idx_productos_aseguradora ( aseguradora ) </title></a>
+<a xlink:href='#productos.aseguradora'><text id='somosmaquina.productos.aseguradora' x='63' y='636' onmouseover="hghl(['productos_fk_productos_aseguradoras','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['productos_fk_productos_aseguradoras','somosmaquina.aseguradoras.id'])">aseguradora</text><title>aseguradora
+* smallint</title></a>
+<a xlink:href='#productos.aseguradora'><use id='fk' x='139' y='626' xlink:href='#fk'/><title>References aseguradoras ( aseguradora -&gt; id ) </title></a>
+
+<!-- == Table 'comercios' == -->
+<rect class='entity' x='210' y='293' width='120' height='105' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='210' y1='319' x2='330' y2='319'/>
+<line class='delim' x1='210' y1='319' x2='330' y2='319' style='stroke:#b6c3d8'/>
+<line class='delim' x1='225' y1='319' x2='225' y2='398' style='stroke:#b6c3d8'/>
+<line class='delim' x1='319' y1='319' x2='319' y2='398' style='stroke:#b6c3d8'/>
+<a xlink:href='#comercios'><text x='243' y='311'>comercios</text><title>Table somosmaquina.comercios</title></a>
+  <use id='nn' x='212' y='327' xlink:href='#nn'/><a xlink:href='#comercios.id'><use id='pk' x='212' y='326' xlink:href='#pk'/><title>Pk pk_comercios_id ( id ) </title></a>
+<a xlink:href='#comercios.id'><text id='somosmaquina.comercios.id' x='228' y='336' onmouseover="hghl(['polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','polizas_fk_polizas_comercios','somosmaquina.polizas.comercio'])" onmouseout="uhghl(['polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','polizas_fk_polizas_comercios','somosmaquina.polizas.comercio','polizas_fk_polizas_comercios','somosmaquina.polizas.comercio'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#comercios.id'><use id='ref' x='319' y='326' xlink:href='#ref'/><title>Referred by polizas ( comercio -&gt; id ) 
+Referred by polizas ( comercio -&gt; id ) 
+Referred by polizas ( comercio -&gt; id ) </title></a>
+  <a xlink:href='#comercios.nombre'><text id='somosmaquina.comercios.nombre' x='228' y='351'>nombre</text><title>nombre
+varchar(100)</title></a>
+<text x='327' y='348' text-anchor='end' class='colType'>t</text>  <a xlink:href='#comercios.fecha_agregado'><text id='somosmaquina.comercios.fecha_agregado' x='228' y='366'>fecha_agregado</text><title>fecha_agregado
+date</title></a>
+<text x='327' y='363' text-anchor='end' class='colType'>d</text>  <a xlink:href='#comercios.tel_contacto'><text id='somosmaquina.comercios.tel_contacto' x='228' y='381'>tel_contacto</text><title>tel_contacto
+varchar(20)</title></a>
+<text x='327' y='378' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'tarifas' == -->
+<rect class='entity' x='105' y='383' width='90' height='90' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='105' y1='409' x2='195' y2='409'/>
+<line class='delim' x1='105' y1='409' x2='195' y2='409' style='stroke:#b6c3d8'/>
+<line class='delim' x1='120' y1='409' x2='120' y2='473' style='stroke:#b6c3d8'/>
+<line class='delim' x1='184' y1='409' x2='184' y2='473' style='stroke:#b6c3d8'/>
+<a xlink:href='#tarifas'><text x='131' y='401'>tarifas</text><title>Table somosmaquina.tarifas</title></a>
+  <use id='nn' x='107' y='417' xlink:href='#nn'/><a xlink:href='#tarifas.id'><use id='pk' x='107' y='416' xlink:href='#pk'/><title>Pk pk_tarifas_id ( id ) </title></a>
+<a xlink:href='#tarifas.id'><text id='somosmaquina.tarifas.id' x='123' y='426' onmouseover="hghl(['polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa','polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa'])" onmouseout="uhghl(['polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa','polizas_fk_polizas_tarifas','somosmaquina.polizas.tarifa'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#tarifas.id'><use id='ref' x='184' y='416' xlink:href='#ref'/><title>Referred by polizas ( tarifa -&gt; id ) 
+Referred by polizas ( tarifa -&gt; id ) </title></a>
+  <a xlink:href='#tarifas.deducible'><text id='somosmaquina.tarifas.deducible' x='123' y='441'>deducible</text><title>deducible
+double</title></a>
+<text x='192' y='438' text-anchor='end' class='colType'>#</text>  <a xlink:href='#tarifas.coaseguro'><text id='somosmaquina.tarifas.coaseguro' x='123' y='456'>coaseguro</text><title>coaseguro
+double</title></a>
+<text x='192' y='453' text-anchor='end' class='colType'>#</text>
+<!-- == Table 'webservices' == -->
+<rect class='entity' x='180' y='563' width='105' height='135' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='180' y1='589' x2='285' y2='589'/>
+<line class='delim' x1='180' y1='589' x2='285' y2='589' style='stroke:#b6c3d8'/>
+<line class='delim' x1='195' y1='589' x2='195' y2='698' style='stroke:#b6c3d8'/>
+<line class='delim' x1='274' y1='589' x2='274' y2='698' style='stroke:#b6c3d8'/>
+<a xlink:href='#webservices'><text x='200' y='581'>webservices</text><title>Table somosmaquina.webservices</title></a>
+  <use id='nn' x='182' y='597' xlink:href='#nn'/><a xlink:href='#webservices.id'><use id='pk' x='182' y='596' xlink:href='#pk'/><title>Pk pk_webservices_id ( id ) </title></a>
+<a xlink:href='#webservices.id'><text id='somosmaquina.webservices.id' x='198' y='606'>id</text><title>id
+* int</title></a>
+<text x='282' y='603' text-anchor='end' class='colType'>#</text>  <a xlink:href='#webservices.tipo'><text id='somosmaquina.webservices.tipo' x='198' y='621'>tipo</text><title>tipo
+enum(soap,rest) </title></a>
+<text x='282' y='618' text-anchor='end' class='colType'>t</text>  <a xlink:href='#webservices.nombre'><text id='somosmaquina.webservices.nombre' x='198' y='636'>nombre</text><title>nombre
+varchar(50)</title></a>
+<text x='282' y='633' text-anchor='end' class='colType'>t</text>  <a xlink:href='#webservices.descripcion'><text id='somosmaquina.webservices.descripcion' x='198' y='651'>descripcion</text><title>descripcion
+varchar(500)</title></a>
+<text x='282' y='648' text-anchor='end' class='colType'>t</text>  <use id='nn' x='182' y='657' xlink:href='#nn'/><a xlink:href='#webservices.configuracion'><use id='idx' x='182' y='656' xlink:href='#idx'/><title>idx_webservices_configuracion ( configuracion ) </title></a>
+<a xlink:href='#webservices.configuracion'><text id='somosmaquina.webservices.configuracion' x='198' y='666' onmouseover="hghl(['webservices_fk_webservices_configuraciones','somosmaquina.configuraciones.id'])" onmouseout="uhghl(['webservices_fk_webservices_configuraciones','somosmaquina.configuraciones.id'])">configuracion</text><title>configuracion
+* int</title></a>
+<a xlink:href='#webservices.configuracion'><use id='fk' x='274' y='656' xlink:href='#fk'/><title>References configuraciones ( configuracion -&gt; id ) </title></a>
+  <a xlink:href='#webservices.clase_java'><text id='somosmaquina.webservices.clase_java' x='198' y='681'>clase_java</text><title>clase_java
+varchar(50)</title></a>
+<text x='282' y='678' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'aseguradoras' == -->
+<rect class='entity' x='270' y='413' width='120' height='120' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='270' y1='439' x2='390' y2='439'/>
+<line class='delim' x1='270' y1='439' x2='390' y2='439' style='stroke:#b6c3d8'/>
+<line class='delim' x1='285' y1='439' x2='285' y2='533' style='stroke:#b6c3d8'/>
+<line class='delim' x1='379' y1='439' x2='379' y2='533' style='stroke:#b6c3d8'/>
+<a xlink:href='#aseguradoras'><text x='294' y='431'>aseguradoras</text><title>Table somosmaquina.aseguradoras</title></a>
+  <use id='nn' x='272' y='447' xlink:href='#nn'/><a xlink:href='#aseguradoras.id'><use id='pk' x='272' y='446' xlink:href='#pk'/><title>Pk pk_aseguradoras_id ( id ) </title></a>
+<a xlink:href='#aseguradoras.id'><text id='somosmaquina.aseguradoras.id' x='288' y='456' onmouseover="hghl(['productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','webservices_fk_webservices_aseguradoras','somosmaquina.webservices.aseguradora','config_autos_fk_config_autos_aseguradoras','somosmaquina.config_autos.aseguradora','config_autos_fk_config_autos_aseguradoras','somosmaquina.config_autos.aseguradora','config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora','config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora'])" onmouseout="uhghl(['productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','productos_fk_productos_aseguradoras','somosmaquina.productos.aseguradora','configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','configuraciones_fk_configuraciones_aseguradoras','somosmaquina.configuraciones.aseguradora','webservices_fk_webservices_aseguradoras','somosmaquina.webservices.aseguradora','config_autos_fk_config_autos_aseguradoras','somosmaquina.config_autos.aseguradora','config_autos_fk_config_autos_aseguradoras','somosmaquina.config_autos.aseguradora','config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora','config_auto_fk_config_auto_aseguradoras','somosmaquina.config_auto.aseguradora'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#aseguradoras.id'><use id='ref' x='379' y='446' xlink:href='#ref'/><title>Referred by productos ( aseguradora -&gt; id ) 
+Referred by productos ( aseguradora -&gt; id ) 
+Referred by configuraciones ( aseguradora -&gt; id ) 
+Referred by configuraciones ( aseguradora -&gt; id ) 
+Referred by webservices ( aseguradora -&gt; id ) 
+Referred by config_autos ( aseguradora -&gt; id ) 
+Referred by config_autos ( aseguradora -&gt; id ) 
+Referred by config_auto ( aseguradora -&gt; id ) 
+Referred by config_auto ( aseguradora -&gt; id ) </title></a>
+  <a xlink:href='#aseguradoras.nombre_corto'><text id='somosmaquina.aseguradoras.nombre_corto' x='288' y='471'>nombre_corto</text><title>nombre_corto
+varchar(5)</title></a>
+<text x='387' y='468' text-anchor='end' class='colType'>t</text>  <a xlink:href='#aseguradoras.nombre_completo'><text id='somosmaquina.aseguradoras.nombre_completo' x='288' y='486'>nombre_completo</text><title>nombre_completo
+varchar(200)</title></a>
+<text x='387' y='483' text-anchor='end' class='colType'>t</text>  <a xlink:href='#aseguradoras.fecha_agregado'><text id='somosmaquina.aseguradoras.fecha_agregado' x='288' y='501'>fecha_agregado</text><title>fecha_agregado
+date</title></a>
+<text x='387' y='498' text-anchor='end' class='colType'>d</text>  <a xlink:href='#aseguradoras.tel_contacto'><text id='somosmaquina.aseguradoras.tel_contacto' x='288' y='516'>tel_contacto</text><title>tel_contacto
+varchar(20)</title></a>
+<text x='387' y='513' text-anchor='end' class='colType'>t</text>
+<!-- == Table 'suma_asegurada' == -->
+<rect class='entity' x='570' y='743' width='105' height='120' rx='7' ry='7' style='fill:url(#tbg_f7f3ec);stroke:#d8ccb6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='570' y1='769' x2='675' y2='769'/>
+<line class='delim' x1='570' y1='769' x2='675' y2='769' style='stroke:#d8ccb6'/>
+<line class='delim' x1='585' y1='769' x2='585' y2='863' style='stroke:#d8ccb6'/>
+<line class='delim' x1='664' y1='769' x2='664' y2='863' style='stroke:#d8ccb6'/>
+<a xlink:href='#suma_asegurada'><text x='578' y='761'>suma_asegurada</text><title>Table somosmaquina.suma_asegurada</title></a>
+  <use id='nn' x='572' y='777' xlink:href='#nn'/><a xlink:href='#suma_asegurada.id'><use id='pk' x='572' y='776' xlink:href='#pk'/><title>Pk pk_suma_asegurada_id ( id ) </title></a>
+<a xlink:href='#suma_asegurada.id'><text id='somosmaquina.suma_asegurada.id' x='588' y='786'>id</text><title>id
+* int</title></a>
+<text x='672' y='783' text-anchor='end' class='colType'>#</text>  <a xlink:href='#suma_asegurada.seccion'><use id='idx' x='572' y='791' xlink:href='#idx'/><title>idx_suma_asegurada_seccion ( seccion ) </title></a>
+<a xlink:href='#suma_asegurada.seccion'><text id='somosmaquina.suma_asegurada.seccion' x='588' y='801' onmouseover="hghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.coberturas.seccion'])" onmouseout="uhghl(['suma_asegurada_fk_suma_asegurada_coberturas','somosmaquina.coberturas.seccion'])">seccion</text><title>seccion
+int</title></a>
+<a xlink:href='#suma_asegurada.seccion'><use id='fk' x='664' y='791' xlink:href='#fk'/><title>References coberturas ( seccion ) </title></a>
+  <a xlink:href='#suma_asegurada.minimo'><text id='somosmaquina.suma_asegurada.minimo' x='588' y='816'>minimo</text><title>minimo
+double</title></a>
+<text x='672' y='813' text-anchor='end' class='colType'>#</text>  <a xlink:href='#suma_asegurada.maximo'><text id='somosmaquina.suma_asegurada.maximo' x='588' y='831'>maximo</text><title>maximo
+double</title></a>
+<text x='672' y='828' text-anchor='end' class='colType'>#</text>  <a xlink:href='#suma_asegurada.porcentaje'><text id='somosmaquina.suma_asegurada.porcentaje' x='588' y='846'>porcentaje</text><title>porcentaje
+decimal</title></a>
+<text x='672' y='843' text-anchor='end' class='colType'>#</text>
+<!-- == Table 'beneficiario' == -->
+<rect class='entity' x='705' y='743' width='75' height='120' rx='7' ry='7' style='fill:url(#tbg_f7f3ec);stroke:#d8ccb6;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='705' y1='769' x2='780' y2='769'/>
+<line class='delim' x1='705' y1='769' x2='780' y2='769' style='stroke:#d8ccb6'/>
+<line class='delim' x1='720' y1='769' x2='720' y2='863' style='stroke:#d8ccb6'/>
+<line class='delim' x1='769' y1='769' x2='769' y2='863' style='stroke:#d8ccb6'/>
+<a xlink:href='#beneficiario'><text x='712' y='761'>beneficiario</text><title>Table somosmaquina.beneficiario</title></a>
+  <use id='nn' x='707' y='777' xlink:href='#nn'/><a xlink:href='#beneficiario.id'><use id='pk' x='707' y='776' xlink:href='#pk'/><title>Pk pk_beneficiario_id ( id ) </title></a>
+<a xlink:href='#beneficiario.id'><text id='somosmaquina.beneficiario.id' x='723' y='786' onmouseover="hghl(['polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario','polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario'])" onmouseout="uhghl(['polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario','polizas_fk_polizas_beneficiario','somosmaquina.polizas.beneficiario'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#beneficiario.id'><use id='ref' x='769' y='776' xlink:href='#ref'/><title>Referred by polizas ( beneficiario -&gt; id ) 
+Referred by polizas ( beneficiario -&gt; id ) </title></a>
+  <a xlink:href='#beneficiario.nombre'><text id='somosmaquina.beneficiario.nombre' x='723' y='801'>nombre</text><title>nombre
+varchar(50)</title></a>
+<text x='777' y='798' text-anchor='end' class='colType'>t</text>  <a xlink:href='#beneficiario.edad'><text id='somosmaquina.beneficiario.edad' x='723' y='816'>edad</text><title>edad
+int</title></a>
+<text x='777' y='813' text-anchor='end' class='colType'>#</text>  <a xlink:href='#beneficiario.telefono'><text id='somosmaquina.beneficiario.telefono' x='723' y='831'>telefono</text><title>telefono
+varchar(20)</title></a>
+<text x='777' y='828' text-anchor='end' class='colType'>t</text>  <a xlink:href='#beneficiario.cp'><use id='idx' x='707' y='836' xlink:href='#idx'/><title>idx_beneficiario_cp ( cp ) </title></a>
+<a xlink:href='#beneficiario.cp'><text id='somosmaquina.beneficiario.cp' x='723' y='846' onmouseover="hghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.direcciones.cp'])" onmouseout="uhghl(['beneficiario_fk_beneficiario_direcciones','somosmaquina.direcciones.cp'])">cp</text><title>cp
+int</title></a>
+<a xlink:href='#beneficiario.cp'><use id='fk' x='769' y='836' xlink:href='#fk'/><title>References direcciones ( cp ) </title></a>
+
+<!-- == Table 'configuraciones' == -->
+<rect class='entity' x='360' y='578' width='105' height='90' rx='7' ry='7' style='fill:url(#tbg_bfd4f5);stroke:#b6c3d8;'/>
+<line class='delim' style='stroke:#b6c4d8;' x1='360' y1='604' x2='465' y2='604'/>
+<line class='delim' x1='360' y1='604' x2='465' y2='604' style='stroke:#b6c3d8'/>
+<line class='delim' x1='375' y1='604' x2='375' y2='668' style='stroke:#b6c3d8'/>
+<line class='delim' x1='454' y1='604' x2='454' y2='668' style='stroke:#b6c3d8'/>
+<a xlink:href='#configuraciones'><text x='372' y='596'>configuraciones</text><title>Table somosmaquina.configuraciones</title></a>
+  <use id='nn' x='362' y='612' xlink:href='#nn'/><a xlink:href='#configuraciones.id'><use id='pk' x='362' y='611' xlink:href='#pk'/><title>Pk pk_configuraciones_id ( id ) </title></a>
+<a xlink:href='#configuraciones.id'><text id='somosmaquina.configuraciones.id' x='378' y='621' onmouseover="hghl(['webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion','webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion'])" onmouseout="uhghl(['webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion','webservices_fk_webservices_configuraciones','somosmaquina.webservices.configuracion'])">id</text><title>id
+* int</title></a>
+<a xlink:href='#configuraciones.id'><use id='ref' x='454' y='611' xlink:href='#ref'/><title>Referred by webservices ( configuracion -&gt; id ) 
+Referred by webservices ( configuracion -&gt; id ) </title></a>
+  <use id='nn' x='362' y='627' xlink:href='#nn'/><a xlink:href='#configuraciones.aseguradora'><use id='idx' x='362' y='626' xlink:href='#idx'/><title>idx_configuraciones_aseguradora ( aseguradora ) </title></a>
+<a xlink:href='#configuraciones.aseguradora'><text id='somosmaquina.configuraciones.aseguradora' x='378' y='636' onmouseover="hghl(['configuraciones_fk_configuraciones_aseguradoras','somosmaquina.aseguradoras.id'])" onmouseout="uhghl(['configuraciones_fk_configuraciones_aseguradoras','somosmaquina.aseguradoras.id'])">aseguradora</text><title>aseguradora
+* int</title></a>
+<a xlink:href='#configuraciones.aseguradora'><use id='fk' x='454' y='626' xlink:href='#fk'/><title>References aseguradoras ( aseguradora -&gt; id ) </title></a>
+  <use id='nn' x='362' y='642' xlink:href='#nn'/><a xlink:href='#configuraciones.formato'><text id='somosmaquina.configuraciones.formato' x='378' y='651'>formato</text><title>formato
+* json</title></a>
+
+<!-- == Callout == -->
+<rect class='callout' x='345' y='525' width='915' height='32' rx='15' ry='15'  />
+<text x='367' y='525' class='callout'>
+    <tspan x='348' dx='7' dy='17'>Las configuraciones se almacenan en formato JSON&#44; lo que permite agregar&#44; modificar o eliminar campos sin necesidad de alterar la estructura de la base de datos&#46;</tspan>
+</text>
+<use x='360' y='557' xlink:href='#calloutArrowDown'/>
+
+</g></svg>

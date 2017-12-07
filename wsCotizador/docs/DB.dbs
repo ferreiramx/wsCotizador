@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="somosmaquina" id="Project_273b56d" template="Default" database="MySql" >
+	<comment><![CDATA[Sistema de cotización múltiple de seguros]]></comment>
+	<schema name="somosmaquina" schemaname="somosmaquina" >
+		<table name="aseguradoras" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="nombre_corto" type="varchar" length="5" jt="12" />
+			<column name="nombre_completo" type="varchar" length="200" jt="12" />
+			<column name="fecha_agregado" type="date" jt="91" />
+			<column name="tel_contacto" type="varchar" length="20" jt="12" />
+			<index name="pk_aseguradoras_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="autos" >
+			<column name="clave" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="marca" type="varchar" length="20" jt="12" />
+			<column name="submarca" type="varchar" length="20" jt="12" />
+			<column name="modelo" type="int" jt="4" unsigned="y" />
+			<column name="descripcion" type="varchar" length="200" jt="12" />
+			<index name="pk_autos_clave" unique="PRIMARY_KEY" >
+				<column name="clave" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="beneficiario" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="nombre" type="varchar" length="50" jt="12" />
+			<column name="edad" type="int" jt="4" unsigned="y" />
+			<column name="telefono" type="varchar" length="20" jt="12" />
+			<column name="cp" type="int" jt="4" unsigned="y" />
+			<index name="pk_beneficiario_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_beneficiario_cp" unique="NORMAL" >
+				<column name="cp" />
+			</index>
+			<fk name="fk_beneficiario_direcciones" to_schema="somosmaquina" to_table="direcciones" >
+				<fk_column name="cp" pk="cp" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="coberturas" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="seccion" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="descripcion" type="varchar" length="300" jt="12" />
+			<column name="deducible" type="int" jt="4" mandatory="y" unsigned="y" />
+			<index name="pk_coberturas_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_coberturas_deducible" unique="NORMAL" >
+				<column name="deducible" />
+			</index>
+			<index name="unq_coberturas_seccion" unique="UNIQUE" >
+				<column name="seccion" />
+			</index>
+			<fk name="fk_coberturas_deducibles" to_schema="somosmaquina" to_table="deducibles" >
+				<fk_column name="deducible" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="comercios" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="nombre" type="varchar" length="100" jt="12" />
+			<column name="fecha_agregado" type="date" jt="91" />
+			<column name="tel_contacto" type="varchar" length="20" jt="12" />
+			<index name="pk_comercios_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="config_auto" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="aseguradora" type="int" jt="4" />
+			<column name="formato" type="json" jt="2000" />
+			<index name="pk_config_auto_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_config_auto_aseguradora" unique="NORMAL" >
+				<column name="aseguradora" />
+			</index>
+			<fk name="fk_config_auto_aseguradoras" to_schema="somosmaquina" to_table="aseguradoras" >
+				<fk_column name="aseguradora" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="config_autos" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="aseguradora" type="int" jt="4" />
+			<column name="formato" type="json" jt="2000" />
+			<index name="pk_config_autos_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_config_autos_aseguradora" unique="NORMAL" >
+				<column name="aseguradora" />
+			</index>
+			<fk name="fk_config_autos_aseguradoras" to_schema="somosmaquina" to_table="aseguradoras" >
+				<fk_column name="aseguradora" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="configuraciones" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="aseguradora" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="formato" type="json" jt="2000" mandatory="y" />
+			<index name="pk_configuraciones_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_configuraciones_aseguradora" unique="NORMAL" >
+				<column name="aseguradora" />
+			</index>
+			<fk name="fk_configuraciones_aseguradoras" to_schema="somosmaquina" to_table="aseguradoras" >
+				<fk_column name="aseguradora" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="deducibles" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="descripcion" type="varchar" length="200" jt="12" />
+			<column name="monto" type="double" jt="8" />
+			<index name="pk_deducibles_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="direcciones" >
+			<column name="cp" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="estado" type="int" jt="4" unsigned="y" />
+			<column name="municipio" type="int" jt="4" unsigned="y" />
+			<index name="pk_direcciones_cp" unique="PRIMARY_KEY" >
+				<column name="cp" />
+			</index>
+			<index name="idx_direcciones_estado" unique="NORMAL" >
+				<column name="estado" />
+			</index>
+			<index name="idx_direcciones_municipio" unique="NORMAL" >
+				<column name="municipio" />
+			</index>
+			<fk name="fk_direcciones_estados" to_schema="somosmaquina" to_table="estados" >
+				<fk_column name="estado" pk="id" />
+			</fk>
+			<fk name="fk_direcciones_municipios" to_schema="somosmaquina" to_table="municipios" >
+				<fk_column name="municipio" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="estados" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="nombre" type="varchar" length="30" jt="12" />
+			<index name="pk_estados_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="giros" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="descripcion" type="varchar" length="300" jt="12" />
+			<index name="pk_giros_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="inmuebles" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="giro" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="cp" type="int" jt="4" />
+			<index name="pk_inmuebles_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_inmuebles_cp" unique="NORMAL" >
+				<column name="cp" />
+			</index>
+			<index name="idx_inmuebles_giro" unique="NORMAL" >
+				<column name="giro" />
+			</index>
+			<fk name="fk_inmuebles_direcciones" to_schema="somosmaquina" to_table="direcciones" >
+				<fk_column name="cp" pk="cp" />
+			</fk>
+			<fk name="fk_inmuebles_giros" to_schema="somosmaquina" to_table="giros" >
+				<fk_column name="giro" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="municipios" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="nombre" type="varchar" length="50" jt="12" />
+			<index name="pk_municipios_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="pagos" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="monto" type="double" jt="8" />
+			<column name="poliza" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="fecha" type="date" jt="91" />
+			<column name="forma_pago" type="enum" jt="12" >
+				<enumeration>efectivo,tarjeta,cheque,transferencia</enumeration>
+			</column>
+			<index name="pk_pagos_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_pagos_poliza" unique="NORMAL" >
+				<column name="poliza" />
+			</index>
+			<fk name="fk_pagos_polizas" to_schema="somosmaquina" to_table="polizas" >
+				<fk_column name="poliza" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="polizas" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="comercio" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="producto" type="int" jt="4" />
+			<column name="tarifa" type="int" jt="4" />
+			<column name="url" type="varchar" length="200" jt="12" />
+			<column name="detalle" type="varchar" length="1000" jt="12" />
+			<column name="beneficiario" type="int" jt="4" mandatory="y" unsigned="y" />
+			<index name="pk_polizas_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_polizas_comercio" unique="NORMAL" >
+				<column name="comercio" />
+			</index>
+			<index name="idx_polizas_producto" unique="NORMAL" >
+				<column name="producto" />
+			</index>
+			<index name="idx_polizas_beneficiario" unique="NORMAL" >
+				<column name="beneficiario" />
+			</index>
+			<index name="idx_polizas_tarifa" unique="NORMAL" >
+				<column name="tarifa" />
+			</index>
+			<fk name="fk_polizas_comercios" to_schema="somosmaquina" to_table="comercios" >
+				<fk_column name="comercio" pk="id" />
+			</fk>
+			<fk name="fk_polizas_productos" to_schema="somosmaquina" to_table="productos" >
+				<fk_column name="producto" pk="id" />
+			</fk>
+			<fk name="fk_polizas_beneficiario" to_schema="somosmaquina" to_table="beneficiario" >
+				<fk_column name="beneficiario" pk="id" />
+			</fk>
+			<fk name="fk_polizas_tarifas" to_schema="somosmaquina" to_table="tarifas" >
+				<fk_column name="tarifa" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="productos" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="descripcion" type="varchar" length="200" jt="12" />
+			<column name="aseguradora" type="smallint" jt="5" mandatory="y" unsigned="y" />
+			<index name="pk_productos_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_productos_aseguradora" unique="NORMAL" >
+				<column name="aseguradora" />
+			</index>
+			<fk name="fk_productos_aseguradoras" to_schema="somosmaquina" to_table="aseguradoras" >
+				<fk_column name="aseguradora" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="suma_asegurada" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="seccion" type="int" jt="4" unsigned="y" />
+			<column name="minimo" type="double" jt="8" />
+			<column name="maximo" type="double" jt="8" />
+			<column name="porcentaje" type="decimal" jt="3" />
+			<index name="pk_suma_asegurada_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_suma_asegurada_seccion" unique="NORMAL" >
+				<column name="seccion" />
+			</index>
+			<fk name="fk_suma_asegurada_coberturas" to_schema="somosmaquina" to_table="coberturas" >
+				<fk_column name="seccion" pk="seccion" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="tarifas" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="deducible" type="double" jt="8" />
+			<column name="coaseguro" type="double" jt="8" />
+			<index name="pk_tarifas_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+		<table name="webservices" >
+			<column name="id" type="int" jt="4" mandatory="y" unsigned="y" autoincrement="y" />
+			<column name="tipo" type="enum" jt="12" >
+				<enumeration>soap,rest</enumeration>
+			</column>
+			<column name="nombre" type="varchar" length="50" jt="12" />
+			<column name="descripcion" type="varchar" length="500" jt="12" />
+			<column name="configuracion" type="int" jt="4" mandatory="y" unsigned="y" />
+			<column name="clase_java" type="varchar" length="50" jt="12" />
+			<index name="pk_webservices_id" unique="PRIMARY_KEY" >
+				<column name="id" />
+			</index>
+			<index name="idx_webservices_configuracion" unique="NORMAL" >
+				<column name="configuracion" />
+			</index>
+			<fk name="fk_webservices_configuraciones" to_schema="somosmaquina" to_table="configuraciones" >
+				<fk_column name="configuracion" pk="id" />
+			</fk>
+			<storage><![CDATA[engine=InnoDB]]></storage>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout_15c02b0" show_relation="columns" >
+		<entity schema="somosmaquina" name="municipios" color="c8f5bf" x="840" y="75" />
+		<entity schema="somosmaquina" name="estados" color="c8f5bf" x="975" y="360" />
+		<entity schema="somosmaquina" name="direcciones" color="c8f5bf" x="975" y="210" />
+		<entity schema="somosmaquina" name="inmuebles" color="c8f5bf" x="855" y="210" />
+		<entity schema="somosmaquina" name="coberturas" color="f7f3ec" x="555" y="615" />
+		<entity schema="somosmaquina" name="deducibles" color="f7f3ec" x="705" y="615" />
+		<entity schema="somosmaquina" name="giros" color="c8f5bf" x="825" y="345" />
+		<entity schema="somosmaquina" name="autos" color="ffffff" x="600" y="285" />
+		<entity schema="somosmaquina" name="pagos" color="bfd4f5" x="240" y="165" />
+		<entity schema="somosmaquina" name="config_auto" color="ffffff" x="585" y="165" />
+		<entity schema="somosmaquina" name="polizas" color="bfd4f5" x="60" y="180" />
+		<entity schema="somosmaquina" name="productos" color="bfd4f5" x="45" y="570" />
+		<entity schema="somosmaquina" name="comercios" color="bfd4f5" x="210" y="300" />
+		<entity schema="somosmaquina" name="tarifas" color="bfd4f5" x="105" y="390" />
+		<entity schema="somosmaquina" name="webservices" color="bfd4f5" x="180" y="570" />
+		<entity schema="somosmaquina" name="aseguradoras" color="bfd4f5" x="270" y="420" />
+		<entity schema="somosmaquina" name="suma_asegurada" color="f7f3ec" x="570" y="750" />
+		<entity schema="somosmaquina" name="beneficiario" color="f7f3ec" x="705" y="750" />
+		<entity schema="somosmaquina" name="configuraciones" color="bfd4f5" x="360" y="585" />
+		<callout x="345" y="540" pointer="SV" >
+			<comment><![CDATA[Las configuraciones se almacenan en formato JSON, lo que permite agregar, modificar o eliminar campos sin necesidad de alterar la estructura de la base de datos.]]></comment>
+		</callout>
+		<group name="aseguradoras" color="ecf0f7" >
+			<entity schema="somosmaquina" name="aseguradoras" />
+			<entity schema="somosmaquina" name="polizas" />
+			<entity schema="somosmaquina" name="configuraciones" />
+			<entity schema="somosmaquina" name="comercios" />
+			<entity schema="somosmaquina" name="productos" />
+			<entity schema="somosmaquina" name="tarifas" />
+			<entity schema="somosmaquina" name="webservices" />
+			<entity schema="somosmaquina" name="pagos" />
+		</group>
+		<group name="direcciones" color="eef7ec" >
+			<entity schema="somosmaquina" name="direcciones" />
+			<entity schema="somosmaquina" name="estados" />
+			<entity schema="somosmaquina" name="giros" />
+			<entity schema="somosmaquina" name="inmuebles" />
+			<entity schema="somosmaquina" name="municipios" />
+		</group>
+		<group name="coberturas" color="f7f3ec" >
+			<entity schema="somosmaquina" name="coberturas" />
+			<entity schema="somosmaquina" name="deducibles" />
+			<entity schema="somosmaquina" name="suma_asegurada" />
+			<entity schema="somosmaquina" name="beneficiario" />
+		</group>
+		<group name="autos" color="ffffff" >
+			<entity schema="somosmaquina" name="autos" />
+			<entity schema="somosmaquina" name="config_auto" />
+		</group>
+	</layout>
+</project>
