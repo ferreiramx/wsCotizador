@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+* {
+font-size: 1rem;
+padding: 0;
+margin: 0;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+h1 {
+text-align: center;
+font-size: 3rem;
+}
+
+form {
+width: 90%;
+margin: 0 auto;
+}
+
+.box {
+padding: 0.1rem;
+}
+
+label {
+display: inline;
+}
+
+input {
+display: inline-block;
+width: 100%;
+padding: 1rem;
+}
+
+input:required:invalid, input:focus:invalid {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAeVJREFUeNqkU01oE1EQ/mazSTdRmqSxLVSJVKU9RYoHD8WfHr16kh5EFA8eSy6hXrwUPBSKZ6E9V1CU4tGf0DZWDEQrGkhprRDbCvlpavan3ezu+LLSUnADLZnHwHvzmJlvvpkhZkY7IqFNaTuAfPhhP/8Uo87SGSaDsP27hgYM/lUpy6lHdqsAtM+BPfvqKp3ufYKwcgmWCug6oKmrrG3PoaqngWjdd/922hOBs5C/jJA6x7AiUt8VYVUAVQXXShfIqCYRMZO8/N1N+B8H1sOUwivpSUSVCJ2MAjtVwBAIdv+AQkHQqbOgc+fBvorjyQENDcch16/BtkQdAlC4E6jrYHGgGU18Io3gmhzJuwub6/fQJYNi/YBpCifhbDaAPXFvCBVxXbvfbNGFeN8DkjogWAd8DljV3KRutcEAeHMN/HXZ4p9bhncJHCyhNx52R0Kv/XNuQvYBnM+CP7xddXL5KaJw0TMAF8qjnMvegeK/SLHubhpKDKIrJDlvXoMX3y9xcSMZyBQ+tpyk5hzsa2Ns7LGdfWdbL6fZvHn92d7dgROH/730YBLtiZmEdGPkFnhX4kxmjVe2xgPfCtrRd6GHRtEh9zsL8xVe+pwSzj+OtwvletZZ/wLeKD71L+ZeHHWZ/gowABkp7AwwnEjFAAAAAElFTkSuQmCC);
+background-position: right top;
+background-repeat: no-repeat;
+-moz-box-shadow: none;
+}
+
+input:required:valid {
+background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAepJREFUeNrEk79PFEEUx9/uDDd7v/AAQQnEQokmJCRGwc7/QeM/YGVxsZJQYI/EhCChICYmUJigNBSGzobQaI5SaYRw6imne0d2D/bYmZ3dGd+YQKEHYiyc5GUyb3Y+77vfeWNpreFfhvXfAWAAJtbKi7dff1rWK9vPHx3mThP2Iaipk5EzTg8Qmru38H7izmkFHAF4WH1R52654PR0Oamzj2dKxYt/Bbg1OPZuY3d9aU82VGem/5LtnJscLxWzfzRxaWNqWJP0XUadIbSzu5DuvUJpzq7sfYBKsP1GJeLB+PWpt8cCXm4+2+zLXx4guKiLXWA2Nc5ChOuacMEPv20FkT+dIawyenVi5VcAbcigWzXLeNiDRCdwId0LFm5IUMBIBgrp8wOEsFlfeCGm23/zoBZWn9a4C314A1nCoM1OAVccuGyCkPs/P+pIdVIOkG9pIh6YlyqCrwhRKD3GygK9PUBImIQQxRi4b2O+JcCLg8+e8NZiLVEygwCrWpYF0jQJziYU/ho2TUuCPTn8hHcQNuZy1/94sAMOzQHDeqaij7Cd8Dt8CatGhX3iWxgtFW/m29pnUjR7TSQcRCIAVW1FSr6KAVYdi+5Pj8yunviYHq7f72po3Y9dbi7CxzDO1+duzCXH9cEPAQYAhJELY/AqBtwAAAAASUVORK5CYII=);
+background-position: right top;
+background-repeat: no-repeat;
+}
+
+#masthead {
+background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/5847/viewport-selection-opt.jpg) no-repeat 50% 50%;
+padding: 10rem 0;
+background-size: 100%;
+/*color: #fff;*/;
+}
+.help{
+  margin: 2rem;
+  
+}
+@media all and (min-width: 35rem) and (max-width: 60rem) {
+
+.box {
+float: left;
+width: 50%;
+}
+
+label {
+display: block;
+}
+
+#masthead {
+}
+}
+
+@media all and (min-width:60rem) {
+label {
+display: inline;
+width: 90px;
+float: left;
+}
+
+.box {
+width: 50%;
+float: left;
+}
+
+input {
+width: 50%;
+}
+
+#masthead {
+padding: 9rem;
+}
+}
+</style>
+<meta charset="ISO-8859-1">
+<title>Web Service Cotización</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.serializejson.js"></script>
+<script>
+function toJSON(){
+        var x = $('#formulario').serializeJSON();
+        var data = JSON.stringify(x);
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("POST", "service/cotizar", false);
+        xhttp.setRequestHeader("Content-type", "application/json");
+        /*xhttp.onreadystatechange = function () {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+            	alert("complete!");
+                var json = JSON.parse(xhttp.responseText);
+                alert(JSON.stringify(json));
+            }
+        };*/
+        xhttp.send(data);
+        alert("El servicio ha retornado. Puede descargar el JSON de la respuesta.");
+        var element = document.createElement('a');
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(xhttp.responseText));
+        element.setAttribute('download', "cotizacion.json");
+
+        element.style.display = 'none';
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+}
+
+</script>
+</head>
+<body>
+<h1>Cotización de Seguro de Autos</h1>
+ <form id="formulario">
+    <fieldset>
+      <legend>
+        Datos Generales
+      </legend>
+      <div class="box">
+        <label>
+          Identificador que ABA|Seguros asignó al negocio:
+        </label>
+        <input type="text" name="DG[NEG]" value="6505"></input>
+      </div>
+      
+       <div class="box">
+        <label>
+          Identificador del agente asignado por ABA|Seguros:
+        </label>
+        <input type="text" name="DG[AGE]" value="91351"></input>
+      </div>
+        
+        <div class="box">
+        <label>
+          Identificador del conducto asignado por ABA|Seguros:
+        </label>
+        <input type="text" name="DG[CON]" value="0"></input>
+      </div>
+      <div class="box">
+        <label>
+          Identificador  que ABA|Seguros asigna a la tarifa:
+        </label>
+        <input type="text" name="DG[TAR]" value="141"></input>
+      </div>
+      <div class="box">
+        <label>
+          Fecha inicio de vigencia (aaaa-mm-dd):
+        </label>
+        	<input type="text" name="DG[INIVIG]" value="2017-12-07"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Fecha fin de vigencia (aaaa-mm-dd):
+        </label>
+        <input type="text" name="DG[FINVIG]" value="2018-12-07"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Identificador del tipo de suscripción:
+        </label>
+        <input type="text" name="DG[TS]" value="2"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Identificador de la agrupación:
+        </label>
+        <input type="text" name="DG[AGRUPA]" value="32310"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Identificador tipo de cálculo:
+        </label>
+        <input type="text" name="DG[TC]" value="1"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Identificador de la forma de pago a utilizar en la cotización:
+        </label>
+        <input type="text" name="DG[FP]" value="2"></input>
+	
+      </div>
+       <div class="box">
+        <label>
+          Clave vehicular:
+        </label>
+        <input type="text" name="INCISOS[INCISO[CVEVEH]]" value="010802001001"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Año modelo del vehículo:
+        </label>
+        <input type="text" name="INCISOS[INCISO[MOD]]" value="2012"></input>
+	
+      </div>
+      <div class="box">
+        <label>
+          Identificador asignado al Paquete que se desea cotizar:
+        </label>
+        <input type="text" name="INCISOS[INCISO[PAQ]]" value="2"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador asignado al Estado de circulación del vehículo:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[EDO]" value="15"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador asignado al Municipio de circulación del vehículo:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[MUN]]" value="2086"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador del servicio del vehículo:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[SERV]]" value="1"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador del uso del vehículo:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[USO]]" value="1"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador del tipo de Deducible:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[TDED]]" value="1"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Identificador del Tipo de Suma Asegurada:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[TSA]]" value="1"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Porcentaje de Descuento en punto decimal:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[PD]]" value="0"></input>
+
+      </div>
+      <div class="box">
+        <label>
+          Porcentaje de Bonificación en punto decimal:
+        </label>
+        	<input type="text" name="INCISOS[INCISO[PB]]" value="0"></input>
+      </div>
+		<div align="center">
+        <input type="submit" value="Cotizar" id="btn" onClick="toJSON()">
+        </div>
+      </div>
+      
+    </fieldset>
+  </form>
+</body>
+</html>
