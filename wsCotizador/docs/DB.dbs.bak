@@ -313,22 +313,22 @@
 		<entity schema="somosmaquina" name="estados" color="c8f5bf" x="975" y="360" />
 		<entity schema="somosmaquina" name="direcciones" color="c8f5bf" x="975" y="210" />
 		<entity schema="somosmaquina" name="inmuebles" color="c8f5bf" x="855" y="210" />
-		<entity schema="somosmaquina" name="coberturas" color="f7f3ec" x="630" y="615" />
-		<entity schema="somosmaquina" name="deducibles" color="f7f3ec" x="780" y="615" />
+		<entity schema="somosmaquina" name="coberturas" color="f7f3ec" x="555" y="615" />
+		<entity schema="somosmaquina" name="deducibles" color="f7f3ec" x="705" y="615" />
 		<entity schema="somosmaquina" name="giros" color="c8f5bf" x="825" y="345" />
-		<entity schema="somosmaquina" name="autos" color="ffffff" x="645" y="315" />
+		<entity schema="somosmaquina" name="autos" color="ffffff" x="600" y="285" />
 		<entity schema="somosmaquina" name="pagos" color="bfd4f5" x="240" y="165" />
-		<entity schema="somosmaquina" name="config_auto" color="ffffff" x="630" y="195" />
+		<entity schema="somosmaquina" name="config_auto" color="ffffff" x="585" y="165" />
 		<entity schema="somosmaquina" name="polizas" color="bfd4f5" x="60" y="180" />
 		<entity schema="somosmaquina" name="productos" color="bfd4f5" x="45" y="570" />
 		<entity schema="somosmaquina" name="comercios" color="bfd4f5" x="210" y="300" />
 		<entity schema="somosmaquina" name="tarifas" color="bfd4f5" x="105" y="390" />
 		<entity schema="somosmaquina" name="webservices" color="bfd4f5" x="180" y="570" />
 		<entity schema="somosmaquina" name="aseguradoras" color="bfd4f5" x="270" y="420" />
-		<entity schema="somosmaquina" name="suma_asegurada" color="f7f3ec" x="645" y="750" />
-		<entity schema="somosmaquina" name="beneficiario" color="f7f3ec" x="780" y="750" />
+		<entity schema="somosmaquina" name="suma_asegurada" color="f7f3ec" x="570" y="750" />
+		<entity schema="somosmaquina" name="beneficiario" color="f7f3ec" x="705" y="750" />
 		<entity schema="somosmaquina" name="configuraciones" color="bfd4f5" x="360" y="585" />
-		<callout x="420" y="540" pointer="SV" >
+		<callout x="345" y="540" pointer="SV" >
 			<comment><![CDATA[Las configuraciones se almacenan en formato JSON, lo que permite agregar, modificar o eliminar campos sin necesidad de alterar la estructura de la base de datos.]]></comment>
 		</callout>
 		<group name="aseguradoras" color="ecf0f7" >

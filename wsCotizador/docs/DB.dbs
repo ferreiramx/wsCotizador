@@ -309,6 +309,7 @@
 		</table>
 	</schema>
 	<layout name="Default Layout" id="Layout_15c02b0" show_relation="columns" >
+		<comment><![CDATA[somosmaquina]]></comment>
 		<entity schema="somosmaquina" name="municipios" color="c8f5bf" x="840" y="75" />
 		<entity schema="somosmaquina" name="estados" color="c8f5bf" x="975" y="360" />
 		<entity schema="somosmaquina" name="direcciones" color="c8f5bf" x="975" y="210" />
