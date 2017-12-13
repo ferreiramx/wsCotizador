@@ -311,83 +311,106 @@ label {
 <script type="text/javascript" src="jquery.serializejson.js"></script>
 <script>
 	function toJSON() {
-		$('#btnSubmit').text('Procesando...');
-		var x = $('#formulario').serializeJSON();
-		var data = JSON.stringify(x);
-		var xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "service/cotizar", false);
-		xhttp.setRequestHeader("Content-type", "application/json");
-		/*xhttp.onreadystatechange = function () {
-		    if (xhttp.readyState === 4 && xhttp.status === 200) {
-		    	alert("complete!");
-		        var json = JSON.parse(xhttp.responseText);
-		        alert(JSON.stringify(json));
-		    }
-		};*/
-		xhttp.send(data);
-		var jsonV = JSON.parse(xhttp.responseText); 
+		// Calcular comparativa
+		var pmax = 29000;
+		var pmin = 22000;
+		var rmax = 1800;
+		var rmin = 1200;
+		var pneta_0 = ((Math.random()*(pmax-pmin))+pmax);
+		var pneta_1 = ((Math.random()*(pmax-pmin))+pmax);
+		var pneta_2 = ((Math.random()*(pmax-pmin))+pmax);
+		var rec_0 = ((Math.random()*(rmax-rmin))+rmax);
+		var rec_1 = ((Math.random()*(rmax-rmin))+rmax);
+		var rec_2 =  ((Math.random()*(rmax-rmin))+rmax);
+		var iva_0 = (pneta_0+rec_0)*0.165;
+		var iva_1 = (pneta_1+rec_1)*0.165;
+		var iva_2 = (pneta_1+rec_1)*0.165;
+		var total_0 = iva_0+pneta_0+rec_0;
+		var total_1 = iva_1+pneta_1+rec_1;
+		var total_2 = iva_2+pneta_2+rec_2;
+		
 		$('.group').hide();
 		$('.btn-box').hide();
 		$('#btnVolver').show();
 		$('#headerText').text("Verifique su cotización");
 		$('.invoice-POS').show(); $('.invoice-POS-1').show(); $('.invoice-POS-2').show();
-		$('#resCOTID').text("ID Cotización:   "+jsonV.COTID);
-		$('#resVERID').text("Versión:   "+jsonV.VERID);
-		$('#resCVEVEH').text("Clave Vehicular:   "+jsonV.incisos.inciso.cveveh);
-		$('#resDESC').text("Descripción:   "+jsonV.incisos.inciso.desc);
-		$('#resPNETA').text("$"+jsonV.PNETA);
-		$('#resDTO').text(jsonV.DTO+"%");
-		$('#resPTOTAL').text("$"+jsonV.PTOTAL);
-		$('#resIVA').text("$"+jsonV.IVA);
-		$('#resREC').text("$"+jsonV.REC);
-				$('#btnSubmit').text('Cotizar');
+		
+		$('#resCOTID').text("ID Cotización:  27005309");
+		$('#resVERID').text("Versión:  27005456");
+		$('#resCVEVEH').text("Clave Vehicular:   01010100402");
+		$('#resDESC').text("Descripción:   RDX 3.5 V6 IPC AUT 5 ABS CA CE PIEL CD QC CB");
+		$('#resDESC-1').text($('#resDESC').text());
+		$('#resDESC-2').text($('#resDESC').text());
+		$('#resCOTID-1').text($('#resCOTID').text());
+		$('#resCOTID-2').text($('#resCOTID').text());
+		$('#resVERID-1').text($('#resVERID').text());
+		$('#resVERID-2').text($('#resVERID').text());
+		$('#resCVEVEH-1').text($('#resCVEVEH').text());
+		$('#resCVEVEH-2').text($('#resCVEVEH').text());
+		$('#resPNETA').text("$"+pneta_0.toFixed(2));
+		$('#resDTO').text("0%");
+		$('#resPTOTAL').text("$"+total_0.toFixed(2));
+		$('#resIVA').text("$"+iva_0.toFixed(2));
+		$('#resREC').text("$"+rec_0.toFixed(2));
+		
+		$('#resPNETA-1').text("$"+pneta_1.toFixed(2));
+		$('#resDTO-1').text("0%");
+		$('#resPTOTAL-1').text("$"+total_1.toFixed(2));
+		$('#resIVA-1').text("$"+iva_1.toFixed(2));
+		$('#resREC-1').text("$"+rec_1.toFixed(2));
+		
+		$('#resPNETA-2').text("$"+pneta_2.toFixed(2));
+		$('#resDTO-2').text("0%");
+		$('#resPTOTAL-2').text("$"+total_2.toFixed(2));
+		$('#resIVA-2').text("$"+iva_2.toFixed(2));
+		$('#resREC-2').text("$"+rec_2.toFixed(2));		$('#btnSubmit').text('Cotizar');
 	}
 
 	function datosEjemplo() {
-		document.getElementsByName("DG[NEG]")[0].value = "6505";
-		document.getElementsByName("DG[AGE]")[0].value = "91351";
-		document.getElementsByName("DG[CON]")[0].value = "0";
-		document.getElementsByName("DG[TAR]")[0].value = "141";
+// 		document.getElementsByName("DG[NEG]")[0].value = "6505";
+// 		document.getElementsByName("DG[AGE]")[0].value = "91351";
+// 		document.getElementsByName("DG[CON]")[0].value = "0";
+// 		document.getElementsByName("DG[TAR]")[0].value = "141";
 		document.getElementsByName("DG[INIVIG]")[0].value = "2017-12-11";
 		document.getElementsByName("DG[FINVIG]")[0].value = "2018-12-11";
-		document.getElementsByName("DG[TS]")[0].value = "2";
-		document.getElementsByName("DG[AGRUPA]")[0].value = "32310";
-		document.getElementsByName("DG[TC]")[0].value = "2";
+// 		document.getElementsByName("DG[TS]")[0].value = "2";
+// 		document.getElementsByName("DG[AGRUPA]")[0].value = "32310";
+// 		document.getElementsByName("DG[TC]")[0].value = "2";
 		document.getElementsByName("DG[FP]")[0].value = "1";
 		document.getElementsByName("INCISOS[INCISO[CVEVEH]]")[0].value = "010101004002";
 		document.getElementsByName("INCISOS[INCISO[MOD]]")[0].value = "2015";
-		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "1";
+// 		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "1";
 		document.getElementsByName("INCISOS[INCISO[EDO]]")[0].value = "9";
 		document.getElementsByName("INCISOS[INCISO[MUN]]")[0].value = "86";
 		document.getElementsByName("INCISOS[INCISO[USO]]")[0].value = "1";
-		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "1";
-		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "1";
+// 		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "1";
+// 		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "1";
 		document.getElementsByName("INCISOS[INCISO[PD]]")[0].value = "0";
 		document.getElementsByName("INCISOS[INCISO[PB]]")[0].value = "0";
-		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "1";
+// 		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "1";
 	}
 	function limpiar() {
-		document.getElementsByName("DG[NEG]")[0].value = "";
-		document.getElementsByName("DG[AGE]")[0].value = "";
-		document.getElementsByName("DG[CON]")[0].value = "";
-		document.getElementsByName("DG[TAR]")[0].value = "";
+// 		document.getElementsByName("DG[NEG]")[0].value = "";
+// 		document.getElementsByName("DG[AGE]")[0].value = "";
+// 		document.getElementsByName("DG[CON]")[0].value = "";
+// 		document.getElementsByName("DG[TAR]")[0].value = "";
 		document.getElementsByName("DG[INIVIG]")[0].value = "";
 		document.getElementsByName("DG[FINVIG]")[0].value = "";
-		document.getElementsByName("DG[TS]")[0].value = "";
-		document.getElementsByName("DG[AGRUPA]")[0].value = "";
-		document.getElementsByName("DG[TC]")[0].value = "";
+// 		document.getElementsByName("DG[TS]")[0].value = "";
+// 		document.getElementsByName("DG[AGRUPA]")[0].value = "";
+// 		document.getElementsByName("DG[TC]")[0].value = "";
 		document.getElementsByName("DG[FP]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[CVEVEH]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[MOD]]")[0].value = "";
-		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "";
+// 		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[EDO]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[MUN]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[USO]]")[0].value = "";
-		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "";
-		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "";
+// 		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "";
+// 		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[PD]]")[0].value = "";
 		document.getElementsByName("INCISOS[INCISO[PB]]")[0].value = "";
-		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "";
+// 		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "";
 	}
 	
 	function volver(){
@@ -409,32 +432,32 @@ label {
 					datos de ejemplo</button>
 			</div>
 			<hr class="sep" />
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[NEG]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>Identificador
-					de negocio:</label>
-			</div>
+<!-- 				<input type="text" name="DG[NEG]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label>Identificador -->
+<!-- 					de negocio:</label> -->
+<!-- 			</div> -->
 
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[AGE]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>
-					Identificador del agente: </label>
-			</div>
+<!-- 				<input type="text" name="DG[AGE]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label> -->
+<!-- 					Identificador del agente: </label> -->
+<!-- 			</div> -->
 
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[CON]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>
-					Identificador del conducto: </label>
-			</div>
-			<div class="group">
+<!-- 				<input type="text" name="DG[CON]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label> -->
+<!-- 					Identificador del conducto: </label> -->
+<!-- 			</div> -->
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[TAR]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>
-					Identificador de tarifa: </label>
-			</div>
+<!-- 				<input type="text" name="DG[TAR]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label> -->
+<!-- 					Identificador de tarifa: </label> -->
+<!-- 			</div> -->
 			<div class="group">
 
 				<input type="text" name="DG[INIVIG]" required="required"
@@ -450,24 +473,24 @@ label {
 					class="bar"></span> <label> Fecha fin de vigencia
 					(aaaa-mm-dd): </label>
 			</div>
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[TS]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>
-					Tipo de suscripción: </label>
-			</div>
-			<div class="group">
+<!-- 				<input type="text" name="DG[TS]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label> -->
+<!-- 					Tipo de suscripción: </label> -->
+<!-- 			</div> -->
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[AGRUPA]" required="required"
-					value=""></input><span class="highlight"></span><span
-					class="bar"></span> <label> Agrupación: </label>
-			</div>
-			<div class="group">
+<!-- 				<input type="text" name="DG[AGRUPA]" required="required" -->
+<!-- 					value=""></input><span class="highlight"></span><span -->
+<!-- 					class="bar"></span> <label> Agrupación: </label> -->
+<!-- 			</div> -->
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="DG[TC]" required="required" value=""></input><span
-					class="highlight"></span><span class="bar"></span> <label>
-					Tipo de cálculo: </label>
-			</div>
+<!-- 				<input type="text" name="DG[TC]" required="required" value=""></input><span -->
+<!-- 					class="highlight"></span><span class="bar"></span> <label> -->
+<!-- 					Tipo de cálculo: </label> -->
+<!-- 			</div> -->
 			<div class="group">
 
 				<input type="text" name="DG[FP]" required="required" value=""></input><span
@@ -487,12 +510,12 @@ label {
 					value=""></input><span class="highlight"></span><span
 					class="bar"></span> <label> Modelo (Año): </label>
 			</div>
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="INCISOS[INCISO[PAQ]]" required="required"
-					value=""></input><span class="highlight"></span><span class="bar"></span>
-				<label> Identificador del Paquete: </label>
-			</div>
+<!-- 				<input type="text" name="INCISOS[INCISO[PAQ]]" required="required" -->
+<!-- 					value=""></input><span class="highlight"></span><span class="bar"></span> -->
+<!-- 				<label> Identificador del Paquete: </label> -->
+<!-- 			</div> -->
 			<div class="group">
 
 				<input type="text" name="INCISOS[INCISO[EDO]]" required="required"
@@ -505,30 +528,30 @@ label {
 					value=""></input><span class="highlight"></span><span class="bar"></span>
 				<label> Municipio: </label>
 			</div>
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="INCISOS[INCISO[SERV]]" required="required"
-					value=""></input><span class="highlight"></span><span class="bar"></span>
-				<label> Identificador del servicio del vehículo: </label>
-			</div>
+<!-- 				<input type="text" name="INCISOS[INCISO[SERV]]" required="required" -->
+<!-- 					value=""></input><span class="highlight"></span><span class="bar"></span> -->
+<!-- 				<label> Identificador del servicio del vehículo: </label> -->
+<!-- 			</div> -->
 			<div class="group">
 
 				<input type="text" name="INCISOS[INCISO[USO]]" required="required"
 					value=""></input><span class="highlight"></span><span class="bar"></span>
 				<label> Identificador del uso del vehículo: </label>
 			</div>
-			<div class="group">
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="INCISOS[INCISO[TDED]]" required="required"
-					value=""></input><span class="highlight"></span><span class="bar"></span>
-				<label> Tipo de Deducible: </label>
-			</div>
-			<div class="group">
+<!-- 				<input type="text" name="INCISOS[INCISO[TDED]]" required="required" -->
+<!-- 					value=""></input><span class="highlight"></span><span class="bar"></span> -->
+<!-- 				<label> Tipo de Deducible: </label> -->
+<!-- 			</div> -->
+<!-- 			<div class="group"> -->
 
-				<input type="text" name="INCISOS[INCISO[TSA]]" required="required"
-					value=""></input><span class="highlight"></span><span class="bar"></span>
-				<label> Tipo de Suma Asegurada: </label>
-			</div>
+<!-- 				<input type="text" name="INCISOS[INCISO[TSA]]" required="required" -->
+<!-- 					value=""></input><span class="highlight"></span><span class="bar"></span> -->
+<!-- 				<label> Tipo de Suma Asegurada: </label> -->
+<!-- 			</div> -->
 			<div class="group">
 
 				<input type="text" name="INCISOS[INCISO[PD]]" required="required"
@@ -625,7 +648,154 @@ label {
 			<!--End Invoice-->
 		</form>
 		</td>
-		</tr></table>
+		<td>
+		<form id="resultado-comparativa-1" >
+			<div class="invoice-POS" id="comp1" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+					<div class="info">
+						<h2>Comparar vs Aseguradora A</h2>
+					</div>
+					<!--End Info-->
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del vehículo</h2>
+						<p id="resCOTID-1"></p> 
+						<p id="resVERID-1"></p>
+						<p id="resCVEVEH-1"> </p>
+						<p id="resDESC-1"></p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA-1"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC-1"></p></td>
+							</tr>
+							
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>IVA</h2></td>
+								<td class="payment"><h2 id="resIVA-1"></h2></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Descuento</h2></td>
+								<td class="payment"><h2 id="resDTO-1"></h2></td>
+							</tr>
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2 id="resPTOTAL-1"></h2></td>
+							</tr>
+
+						</table>
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+		</td>
+		<td>
+		<form id="resultado-comparativa-2" >
+			<div class="invoice-POS" id="comp2" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+					<div class="info">
+						<h2>Comparar vs Aseguradora B</h2>
+					</div>
+					<!--End Info-->
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del vehículo</h2>
+						<p id="resCOTID-2"></p> 
+						<p id="resVERID-2"></p>
+						<p id="resCVEVEH-2"></p>
+						<p id="resDESC-2"></p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA-2"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC-2"></p></td>
+							</tr>
+							
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>IVA</h2></td>
+								<td class="payment"><h2 id="resIVA-2"></h2></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Descuento</h2></td>
+								<td class="payment"><h2 id="resDTO-2"></h2></td>
+							</tr>
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2 id="resPTOTAL-2"></h2></td>
+							</tr>
+
+						</table>
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+		</td></tr></table>
 		<div align="center">
 						<button class="btn btn-link" type="button" id="btnVolver"
 					onClick="volver()" style="display: none">Cotizar de nuevo</button>
