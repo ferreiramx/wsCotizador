@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cotización</title>
+<style>
+.invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding: 2mm;
+  margin: 0 auto;
+  width: 75mm;
+  background: #C0C0C0;
+}
+
+.invoice-POS ::selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+.invoice-POS ::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+.invoice-POS h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+.invoice-POS h2 {
+  font-size: 1.2em;
+}
+
+.invoice-POS h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+
+.invoice-POS p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+.invoice-POS #top, .invoice-POS #mid, .invoice-POS #bot {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid #EEE;
+}
+
+.invoice-POS #top {
+  min-height: 100px;
+}
+
+.invoice-POS #mid {
+  min-height: 80px;
+}
+
+.invoice-POS #bot {
+  min-height: 50px;
+}
+
+#comp0 #top .logo {
+  height: 60px;
+  width: 60px;
+  background: url(https://www.autocompara.com/ExpressoAutoCompara/images/aseg/logo-aba-seguros01.png) no-repeat;
+  background-size: 70px 70px;
+}
+
+#comp1 #top .logo {
+  height: 42px;
+  width: 68px;
+  background: url(http://generic.com.sg/wp-content/uploads/2015/06/Generic-Logo-Horizontal-FA-01.png) no-repeat;
+  background-size: 68px 42px;
+}
+
+#comp2 #top .logo {
+  height: 21px;
+  width: 68px;
+  background: url(http://helporganizemybusiness.com/wp-content/uploads/2017/06/generic-logo.png) no-repeat;
+  background-size: 68px 21px;
+}
+
+.invoice-POS .clientlogo {
+  float: left;
+  height: 60px;
+  width: 60px;
+  background: url(../assets/logos/aba-seguros.png) no-repeat;
+  background-size: 60px 60px;
+  border-radius: 50px;
+}
+
+.invoice-POS .info {
+  display: block;
+  margin-left: 0;
+}
+
+.invoice-POS .title {
+  float: right;
+}
+
+.invoice-POS .title p {
+  text-align: right;
+}
+
+.invoice-POS table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-POS .tabletitle {
+  font-size: .5em;
+  background: #EEE;
+}
+
+.invoice-POS .service {
+  border-bottom: 1px solid #EEE;
+}
+
+.invoice-POS .item {
+  width: 24mm;
+}
+
+.invoice-POS .itemtext {
+  font-size: .8em;
+}
+
+.invoice-POS #legalcopy {
+  margin-top: 5mm;
+}
+
+</style>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700")
+	;
+
+*, :before, :after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: #424242;
+	font-family: 'Lato';
+}
+
+form {
+	width: 320px;
+	margin: 45px auto;
+}
+
+form h1 {
+	font-size: 3em;
+	font-weight: 300;
+	text-align: center;
+	color: #2196F3;
+}
+
+form h5 {
+	text-align: center;
+	text-transform: uppercase;
+	color: #c6c6c6;
+}
+
+form hr.sep {
+	background: #2196F3;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	height: 2px;
+	width: 25%;
+	margin: 0px auto 45px auto;
+}
+
+form .emoji {
+	font-size: 1.2em;
+}
+
+.group {
+	position: relative;
+	margin: 45px 0;
+}
+
+textarea {
+	resize: none;
+}
+
+input, textarea {
+	background: none;
+	color: #c6c6c6;
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 320px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #c6c6c6;
+}
+
+input:focus, textarea:focus {
+	outline: none;
+}
+
+input:focus ~ label, input:valid ~ label, textarea:focus ~ label,
+	textarea:valid ~ label {
+	top: -14px;
+	font-size: 12px;
+	color: #2196F3;
+}
+
+input:focus ~ .bar:before, textarea:focus ~ .bar:before {
+	width: 320px;
+}
+
+input[type="password"] {
+	letter-spacing: 0.3em;
+}
+
+label {
+	color: #c6c6c6;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
+}
+
+.bar {
+	position: relative;
+	display: block;
+	width: 320px;
+}
+
+.bar:before {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 0px;
+	position: absolute;
+	background: #2196F3;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
+	left: 0%;
+}
+
+.btn {
+	background: #fff;
+	color: #959595;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-decoration: none;
+	outline: none;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px
+		rgba(0, 0, 0, 0.24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn:hover {
+	color: #8b8b8b;
+	-webkit-box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px
+		rgba(0, 0, 0, 0.12);
+	box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px
+		rgba(0, 0, 0, 0.12);
+}
+
+.btn.btn-link {
+	background: #2196F3;
+	color: #d3eafd;
+}
+
+.btn.btn-link:hover {
+	background: #0d8aee;
+	color: #deeffd;
+}
+
+.btn.btn-submit {
+	background: #2196F3;
+	color: #bce0fb;
+}
+
+.btn.btn-submit:hover {
+	background: #0d8aee;
+	color: #deeffd;
+}
+
+.btn.btn-cancel {
+	background: #eee;
+}
+
+.btn.btn-cancel:hover {
+	background: #e1e1e1;
+	color: #8b8b8b;
+}
+
+.btn-box {
+	text-align: center;
+	margin: 50px 0;
+}
+</style>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="jquery.serializejson.js"></script>
+<script>
+	function toJSON() {
+		$('#btnSubmit').text('Procesando...');
+		var x = $('#formulario').serializeJSON();
+		var data = JSON.stringify(x);
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "service/cotizar", false);
+		xhttp.setRequestHeader("Content-type", "application/json");
+		/*xhttp.onreadystatechange = function () {
+		    if (xhttp.readyState === 4 && xhttp.status === 200) {
+		    	alert("complete!");
+		        var json = JSON.parse(xhttp.responseText);
+		        alert(JSON.stringify(json));
+		    }
+		};*/
+		xhttp.send(data);
+
+		var jsonV = JSON.parse(xhttp.responseText); 
+		$('.group').hide();
+		$('.btn-box').hide();
+		$('#btnVolver').show();
+		$('#headerText').text("Verifique su cotización");
+		$('.invoice-POS').show(); $('.invoice-POS-1').show(); $('.invoice-POS-2').show();
+		$('#resCOTID').text("ID Cotización:   "+jsonV.COTID);
+		$('#resVERID').text("Versión:   "+jsonV.VERID);
+		$('#resCVEVEH').text("Clave Vehicular:   "+jsonV.incisos.inciso.cveveh);
+		$('#resDESC').text("Descripción:   "+jsonV.incisos.inciso.desc);
+		$('#resDESC-1').text($('#resDESC').text());
+		$('#resDESC-2').text($('#resDESC').text());
+		$('#resCOTID-1').text($('#resCOTID').text());
+		$('#resCOTID-2').text($('#resCOTID').text());
+		$('#resVERID-1').text($('#resVERID').text());
+		$('#resVERID-2').text($('#resVERID').text());
+		$('#resCVEVEH-1').text($('#resCVEVEH').text());
+		$('#resCVEVEH-2').text($('#resCVEVEH').text());
+		$('#resPNETA').text("$"+jsonV.PNETA);
+		$('#resDTO').text(jsonV.DTO+"%");
+		$('#resPTOTAL').text("$"+jsonV.PTOTAL);
+		$('#resIVA').text("$"+jsonV.IVA);
+		$('#resREC').text("$"+jsonV.REC);
+		
+		// Calcular comparativa
+		var pneta_1 = jsonV.PNETA * ((Math.random()*0.1)+0.95);
+		var pneta_2 = jsonV.PNETA * ((Math.random()*0.1)+0.95);
+		var rec_1 = jsonV.REC * ((Math.random()*0.1)+0.97);
+		var rec_2 = jsonV.REC * ((Math.random()*0.1)+0.97);
+		var iva_1 = (pneta_1+rec_1)*0.165;
+		var iva_2 = (pneta_1+rec_1)*0.165;
+		var total_1 = iva_1+pneta_1+rec_1;
+		var total_2 = iva_2+pneta_2+rec_2;
+		$('#resPNETA-1').text("$"+pneta_1.toFixed(2));
+		$('#resDTO-1').text("0%");
+		$('#resPTOTAL-1').text("$"+total_1.toFixed(2));
+		$('#resIVA-1').text("$"+iva_1.toFixed(2));
+		$('#resREC-1').text("$"+rec_1.toFixed(2));
+		
+		$('#resPNETA-2').text("$"+pneta_2.toFixed(2));
+		$('#resDTO-2').text("0%");
+		$('#resPTOTAL-2').text("$"+total_2.toFixed(2));
+		$('#resIVA-2').text("$"+iva_2.toFixed(2));
+		$('#resREC-2').text("$"+rec_2.toFixed(2));		$('#btnSubmit').text('Cotizar');
+	}
+
+	function datosEjemplo() {
+		document.getElementsByName("DG[NEG]")[0].value = "6505";
+		document.getElementsByName("DG[AGE]")[0].value = "91351";
+		document.getElementsByName("DG[CON]")[0].value = "0";
+		document.getElementsByName("DG[TAR]")[0].value = "141";
+		document.getElementsByName("DG[INIVIG]")[0].value = "2017-12-11";
+		document.getElementsByName("DG[FINVIG]")[0].value = "2018-12-11";
+		document.getElementsByName("DG[TS]")[0].value = "2";
+		document.getElementsByName("DG[AGRUPA]")[0].value = "32310";
+		document.getElementsByName("DG[TC]")[0].value = "2";
+		document.getElementsByName("DG[FP]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[CVEVEH]]")[0].value = "010101004002";
+		document.getElementsByName("INCISOS[INCISO[MOD]]")[0].value = "2015";
+		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[EDO]]")[0].value = "9";
+		document.getElementsByName("INCISOS[INCISO[MUN]]")[0].value = "86";
+		document.getElementsByName("INCISOS[INCISO[USO]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[PD]]")[0].value = "0";
+		document.getElementsByName("INCISOS[INCISO[PB]]")[0].value = "0";
+		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "1";
+	}
+	function limpiar() {
+		document.getElementsByName("DG[NEG]")[0].value = "";
+		document.getElementsByName("DG[AGE]")[0].value = "";
+		document.getElementsByName("DG[CON]")[0].value = "";
+		document.getElementsByName("DG[TAR]")[0].value = "";
+		document.getElementsByName("DG[INIVIG]")[0].value = "";
+		document.getElementsByName("DG[FINVIG]")[0].value = "";
+		document.getElementsByName("DG[TS]")[0].value = "";
+		document.getElementsByName("DG[AGRUPA]")[0].value = "";
+		document.getElementsByName("DG[TC]")[0].value = "";
+		document.getElementsByName("DG[FP]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[CVEVEH]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[MOD]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[EDO]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[MUN]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[USO]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[PD]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[PB]]")[0].value = "";
+		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "";
+	}
+	
+	function volver(){
+		$('.group').show();
+		$('.btn-box').show();
+		$('#btnVolver').hide();
+		$('#headerText').text("Ingrese la información solicitada en el formulario");
+		$('.invoice-POS').hide(); $('.invoice-POS-2').hide(); $('.invoice-POS-2').hide();
+	}
+</script>
+</head>
+<body>
+	<div class="wrapper">
+		<form id="formulario">
+			<h1>Cotización</h1>
+			<h5 id="headerText">Ingrese la información solicitada en el formulario</h5>
+			<div class="btn-box">
+				<button class="btn btn-link" type="button" onClick="datosEjemplo()">Usar
+					datos de ejemplo</button>
+			</div>
+			<hr class="sep" />
+			<div class="group">
+
+				<input type="text" name="DG[NEG]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>Identificador
+					de negocio:</label>
+			</div>
+
+			<div class="group">
+
+				<input type="text" name="DG[AGE]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Identificador del agente: </label>
+			</div>
+
+			<div class="group">
+
+				<input type="text" name="DG[CON]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Identificador del conducto: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[TAR]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Identificador de tarifa: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[INIVIG]" required="required"
+					value=""></input><span class="highlight"></span><span
+					class="bar"></span> <label> Fecha inicio de vigencia
+					(aaaa-mm-dd): </label>
+
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[FINVIG]" required="required"
+					value=""></input><span class="highlight"></span><span
+					class="bar"></span> <label> Fecha fin de vigencia
+					(aaaa-mm-dd): </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[TS]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Tipo de suscripción: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[AGRUPA]" required="required"
+					value=""></input><span class="highlight"></span><span
+					class="bar"></span> <label> Agrupación: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[TC]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Tipo de cálculo: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="DG[FP]" required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Forma de pago: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[CVEVEH]]"
+					required="required" value=""></input><span
+					class="highlight"></span><span class="bar"></span> <label>
+					Clave vehicular: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[MOD]]" required="required"
+					value=""></input><span class="highlight"></span><span
+					class="bar"></span> <label> Modelo (Año): </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[PAQ]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Identificador del Paquete: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[EDO]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Estado: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[MUN]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Municipio: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[SERV]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Identificador del servicio del vehículo: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[USO]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Identificador del uso del vehículo: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[TDED]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Tipo de Deducible: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[TSA]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Tipo de Suma Asegurada: </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[PD]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Descuento (%): </label>
+			</div>
+			<div class="group">
+
+				<input type="text" name="INCISOS[INCISO[PB]]" required="required"
+					value=""></input><span class="highlight"></span><span class="bar"></span>
+				<label> Bonificación (%): </label>
+			</div>
+			<div class="btn-box">
+				<button class="btn btn-submit" type="button" id="btnSubmit"
+					onClick="toJSON()">Cotizar</button>
+				<button class="btn btn-cancel" type="button" onClick="limpiar()">Limpiar</button>
+			</div>
+		</form>
+	<div id="comparativa">
+	<table align="center">
+	<tr>
+	<td>
+		<form id="resultado" >
+			<div class="invoice-POS" id="comp0" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+					<div class="info">
+						<h2>Resultado de la cotización</h2>
+					</div>
+					<!--End Info-->
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del vehículo</h2>
+						<p id="resCOTID">ID Cotización: </p> 
+						<p id="resVERID">Versión: </p>
+						<p id="resCVEVEH">Clave Vehicular: </p>
+						<p id="resDESC">Descripción: </p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC"></p></td>
+							</tr>
+							
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>IVA</h2></td>
+								<td class="payment"><h2 id="resIVA"></h2></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Descuento</h2></td>
+								<td class="payment"><h2 id="resDTO"></h2></td>
+							</tr>
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2 id="resPTOTAL"></h2></td>
+							</tr>
+
+						</table>
+						
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+		</td>
+		<td>
+		<form id="resultado-comparativa-1" >
+			<div class="invoice-POS" id="comp1" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+					<div class="info">
+						<h2>Comparar vs Aseguradora A</h2>
+					</div>
+					<!--End Info-->
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del vehículo</h2>
+						<p id="resCOTID-1"></p> 
+						<p id="resVERID-1"></p>
+						<p id="resCVEVEH-1"> </p>
+						<p id="resDESC-1"></p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA-1"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC-1"></p></td>
+							</tr>
+							
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>IVA</h2></td>
+								<td class="payment"><h2 id="resIVA-1"></h2></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Descuento</h2></td>
+								<td class="payment"><h2 id="resDTO-1"></h2></td>
+							</tr>
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2 id="resPTOTAL-1"></h2></td>
+							</tr>
+
+						</table>
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+		</td>
+		<td>
+		<form id="resultado-comparativa-2" >
+			<div class="invoice-POS" id="comp2" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+					<div class="info">
+						<h2>Comparar vs Aseguradora B</h2>
+					</div>
+					<!--End Info-->
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del vehículo</h2>
+						<p id="resCOTID-2"></p> 
+						<p id="resVERID-2"></p>
+						<p id="resCVEVEH-2"></p>
+						<p id="resDESC-2"></p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA-2"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC-2"></p></td>
+							</tr>
+							
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>IVA</h2></td>
+								<td class="payment"><h2 id="resIVA-2"></h2></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Descuento</h2></td>
+								<td class="payment"><h2 id="resDTO-2"></h2></td>
+							</tr>
+
+							<tr class="tabletitle">
+								<td></td>
+								<td class="Rate"><h2>Total</h2></td>
+								<td class="payment"><h2 id="resPTOTAL-2"></h2></td>
+							</tr>
+
+						</table>
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+		</td></tr></table>
+		<div align="center">
+						<button class="btn btn-link" type="button" id="btnVolver"
+					onClick="volver()" style="display: none">Cotizar de nuevo</button>
+					</div>
+		</div>
+	</div>
+</body>
+</html>
