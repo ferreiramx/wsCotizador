@@ -161,6 +161,7 @@ public class CotizacionStub extends org.apache.axis2.client.Stub
         org.apache.axis2.context.MessageContext _messageContext = new org.apache.axis2.context.MessageContext();
 
         try {
+        	System.out.println("STUB");
             org.apache.axis2.client.OperationClient _operationClient = _serviceClient.createClient(_operations[0].getName());
             _operationClient.getOptions()
                             .setAction("http://ace.diversos.vibia.wcf.model/services/cotizacion/GetCotizacion");

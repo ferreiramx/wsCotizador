@@ -10,6 +10,7 @@ public class MessageApplication extends Application {
 
 	public MessageApplication() {
 		singletons.add(new XMLService());
+		singletons.add(new VibiaCotiza());
 	}
 
 	@Override
