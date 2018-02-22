@@ -1,0 +1,48 @@
+<div class="middle-box text-center loginscreen   animated fadeInDown">
+    <div>
+        <div>
+
+            <h1 class="logo-name">ws</h1>
+
+        </div>
+        <h3>Crear una cuenta</h3>
+        <p>Con unos pocos datos cree un nuevo usuario en segundos</p>
+        <form class="m-t" role="form" action="login.html">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Usuario" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nombre" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Apellido Paterno" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Apellido Materno" required="">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" placeholder="Correo electr&oacute;nico" required="">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" placeholder="Contrase&ntilde;a" required="">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="&Aacute;rea" required="">
+            </div>
+           <div class="form-group"><label class="col-sm-2 control-label">Permisos</label>
+
+                            <div class="col-sm-10">
+                                <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Emitir
+                                </label>
+                                <label class="checkbox-inline"> <input icheck type="checkbox" ng-model="main.unCheck"> Cotizar
+                                </label>
+                               </div>
+                        </div>
+            <button type="submit" class="btn btn-primary block full-width m-b">Registrarse</button>
+
+            <p class="text-muted text-center"><small>Ya tiene una cuenta?</small></p>
+            <a class="btn btn-sm btn-white btn-block" ui-sref="index.login">Entrar</a>
+        </form>
+      
+    </div>
+</div>

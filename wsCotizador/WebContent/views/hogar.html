@@ -1,0 +1,249 @@
+
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-7">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Seguro de vivienda | Cotizaci&oacute;n</h5>
+
+                    <div ibox-tools></div>
+                </div>
+                <div class="ibox-content">
+						<form class="form-horizontal" id="formulario">
+							<p>Ingrese la informaci&oacute;n</p>
+<!-- 							<div class="form-group"> -->
+<div class="row">
+								<div class="col-lg-offset-2 col-lg-10">
+									<button class="btn btn-sm btn-white" type="button"
+										onClick="limpiar()">Limpiar</button>
+								</div>
+<!-- 							</div> -->
+<!-- 							<div class="form-group"> -->
+								<div class="col-lg-offset-2 col-lg-10">
+									<button class="btn btn-sm btn-white" type="button"
+										onClick="datosEjemplo()">Usar datos de ejemplo</button>
+								</div>
+<!-- 							</div> -->
+</div>
+
+						<div class="form-group"><label class="col-lg-2 control-label">Fecha inicio</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="DatosGenerales[FechaInicioPoliza]"> 
+                            <span class="help-block m-b-none">aaaa-mm-dd</span>
+                            </div>
+                        </div>
+                        
+                         <div class="form-group"><label class="col-lg-2 control-label">Fecha fin</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="DatosGenerales[FechaFinPoliza]"> 
+                            <span class="help-block m-b-none">aaaa-mm-dd</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Muro</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Caracteristicas[TipoMuroId]"> 
+                            <span class="help-block m-b-none">Tipo de muro del bien</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Techo</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Caracteristicas[TipoTechoId]"> 
+                            <span class="help-block m-b-none">Tipo de techo del bien</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Riesgo</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Caracteristicas[RiesgoDesc]"> 
+                            <span class="help-block m-b-none">Descripci&oacute;n del riesgo a cotizar</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Tipo</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Caracteristicas[TipoHabitacionalId]"> 
+                            <span class="help-block m-b-none">Tipo habitacional del bien</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Niveles</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Caracteristicas[CantNiveles]"> 
+                            <span class="help-block m-b-none">Cantidad de niveles del bien</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Pa&iacute;s</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[PaisId]"> 
+                            <span class="help-block m-b-none">Identificador del pa&iacute;s</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Estado</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[EstadoId]"> 
+                            <span class="help-block m-b-none">Identificador del estado</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Municipio</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[MunicipioId]"> 
+                            <span class="help-block m-b-none">Identificador del municipio</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Poblaci&oacute;n</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[PoblacionId]"> 
+                            <span class="help-block m-b-none">Identificador del poblado</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Colonia</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[ColoniaId]"> 
+                            <span class="help-block m-b-none"> Identificador de la colonia</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Calle</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[Calle]"> 
+                            <span class="help-block m-b-none">Calle donde se localiza el bien</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">N&uacute;mero</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[NoExt]"> 
+                            <span class="help-block m-b-none">N&uacute;mero exterior de la propiedad:</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Frente agua</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Ubicacion[IsBeachFront]"> 
+                            <span class="help-block m-b-none">La propiedad est&aacute; frente al agua?</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Paquete</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Paquete[Id]"> 
+                            <span class="help-block m-b-none">Identificador del paquete a cotizar</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Forma de pago</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Paquete[FormaPagoId]"> 
+                            <span class="help-block m-b-none">Identificador de la forma de pago</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Tipo de c&aacute;lculo</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Paquete[TipoCalculoId]"> 
+                            <span class="help-block m-b-none">Identificador del tipo de c&aacute;lculo</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Deducible</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="Paquete[TipoDeducibleId]"> 
+                            <span class="help-block m-b-none"> Identificador del tipo de deducible</span>
+                            </div>
+                        </div>
+                         <div class="form-group"><label class="col-lg-2 control-label">Asegurado</label>
+                            <div class="col-lg-10"><input type="text" placeholder="" class="form-control" name="DatosExtras[NombreAsegurado]"> 
+                            <span class="help-block m-b-none">Nombre del asegurado del bien</span>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-sm btn-white" type="button" onClick="toJSON()">Cotizar</button>
+                            </div>
+                            <div class="col-lg-offset-2 col-lg-10">
+                                <button class="btn btn-sm btn-white" type="button">Guardar Cotizaci&oacute;n</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="row">
+			<div class="col-lg-5">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Resultado de la cotizaci&oacute;n</h5>
+
+						<div ibox-tools></div>
+					</div>
+					<div class="ibox-content"></div>
+				</div>
+			</div>
+			
+			<div class="col-lg-5">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Cotizaciones Guardadas</h5>
+
+						<div ibox-tools></div>
+					</div>
+					<div class="ibox-content"></div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+<script>
+	function toJSON() {
+		if($('input:text').filter(function(){
+		    return !$(this).val();
+		}).length == 0){
+		//$('#btnSubmit').text('Procesando...');
+		var x = $('#formulario').serializeJSON();
+		var data = JSON.stringify(x);
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "service/ABA/hogar/cotizar", false);
+		xhttp.setRequestHeader("Content-type", "application/json");
+		/*xhttp.onreadystatechange = function () {
+		    if (xhttp.readyState === 4 && xhttp.status === 200) {
+		    	alert("complete!");
+		        var json = JSON.parse(xhttp.responseText);
+		        alert(JSON.stringify(json));
+		    }
+		};*/
+		xhttp.send();
+		alert("El servicio web ubicado en [http://web.abaseguros.com/VibiaConnect/Cotizacion.svc?wsdl] ha arrojado un error:" + xhttp.responseText);
+		var jsonV = JSON.parse(xhttp.responseText); 
+		/*$('.group').hide();
+		$('.btn-box').hide();
+		$('#btnVolver').show();
+		$('#headerText').text("Verifique su cotización");
+		$('.invoice-POS').show(); $('.invoice-POS-1').show(); $('.invoice-POS-2').show();
+		$('#resCOTID').text("ID Cotización:   "+jsonV.COTID);
+		$('#resVERID').text("Versión:   "+jsonV.VERID);
+		//$('#resCVEVEH').text("Clave Vehicular:   "+jsonV.incisos.inciso.cveveh);
+		//$('#resDESC').text("Descripción:   "+jsonV.incisos.inciso.desc);
+		$('#resPNETA').text("$"+jsonV.PNETA);
+		$('#resDTO').text(jsonV.DTO+"%");
+		$('#resPTOTAL').text("$"+jsonV.PTOTAL);
+		$('#resIVA').text("$"+jsonV.IVA);
+		$('#resREC').text("$"+jsonV.REC);
+		
+		$('#btnSubmit').text('Cotizar');*/
+		}
+		else{
+			alert("Por favor llene todos los campos.");
+		}
+	}
+
+	function datosEjemplo() {
+		$("[name='DatosGenerales[NegocioId]']").val("6505");
+		$("[name='DatosGenerales[AgenteId]']").val("91351");
+		$("[name='DatosGenerales[ConductoId]']").val("0");
+		$("[name='DatosGenerales[IsSegmentacion]']").val("No");
+		$("[name='DatosGenerales[Moneda]']").val("1");
+		$("[name='DatosGenerales[FechaInicioPoliza]']").val("2018-02-01");
+		$("[name='DatosGenerales[FechaFinPoliza]']").val("2019-12-31");
+		$("[name='Caracteristicas[TipoMuroId]']").val("3");
+		$("[name='Caracteristicas[TipoTechoId]']").val("1");
+		$("[name='Caracteristicas[RiesgoDesc]']").val("Incendio");
+		$("[name='Caracteristicas[TipoHabitacionalId]']").val("2");
+		$("[name='Caracteristicas[CantNiveles]']").val("2");
+		$("[name='Ubicacion[PaisId]']").val("1");
+		$("[name='Ubicacion[EstadoId]']").val("14");
+		$("[name='Ubicacion[MunicipioId]']").val("23");
+		$("[name='Ubicacion[PoblacionId]']").val("2357");
+		$("[name='Ubicacion[ColoniaId]']").val("453");
+		$("[name='Ubicacion[Calle]']").val("Avenida Principal");
+		$("[name='Ubicacion[NoExt]']").val("115");
+		$("[name='Ubicacion[IsBeachFront]']").val("No");
+		$("[name='Paquete[Id]']").val("15");
+		$("[name='Paquete[FormaPagoId]']").val("1");
+		$("[name='Paquete[TipoCalculoId]']").val("1");
+		$("[name='Paquete[TipoDeducibleId]']").val("1");
+		$("[name='DatosExtras[NombreAsegurado]']").val("John Doe");
+	}
+	function limpiar() {
+		$("input:text").val("");
+	}
+	
+	function volver(){
+		$('.group').show();
+		$('.btn-box').show();
+		$('#btnVolver').hide();
+		$('#headerText').text("Ingrese la información solicitada en el formulario");
+		$('.invoice-POS').hide(); $('.invoice-POS-2').hide(); $('.invoice-POS-2').hide();
+	}
+</script>

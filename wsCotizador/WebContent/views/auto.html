@@ -1,0 +1,415 @@
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-lg-7">
+			<div class="ibox float-e-margins">
+				<div class="ibox-title">
+					<h5>Seguro de auto | Cotizaci&oacute;n</h5>
+
+					<div ibox-tools></div>
+				</div>
+				<div class="ibox-content">
+					<form class="form-horizontal" id="formulario">
+						<p>Ingrese la informaci&oacute;n</p>
+						<!-- 							<div class="form-group"> -->
+						<div class="row">
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-white" type="button"
+									onClick="limpiar()">Limpiar</button>
+							</div>
+							<!-- 							</div> -->
+							<!-- 							<div class="form-group"> -->
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-white" type="button"
+									onClick="datosEjemplo()">Usar datos de ejemplo</button>
+							</div>
+							<!-- 							</div> -->
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Negocio:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[NEG]"> <span class="help-block m-b-none">Identificador
+									del negocio</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Agente:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[AGE]"> <span class="help-block m-b-none">Identificador
+									del agente</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Conducto:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[CON]"> <span class="help-block m-b-none">Identificador
+									del conducto</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Tarifa:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[TAR]"> <span class="help-block m-b-none">Identificador
+									de tarifa</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Inicio:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[INIVIG]"> <span class="help-block m-b-none">Fecha
+									inicio de vigencia (aaaa-mm-dd)</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Fin:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[FINVIG]"> <span class="help-block m-b-none">Fecha
+									fin de vigencia (aaaa-mm-dd)</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Suscripci&oacute;n:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[TS]"> <span class="help-block m-b-none">Tipo
+									de suscripci&oacute;n</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Agrupaci&oacute;n:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[AGRUPA]"> <span class="help-block m-b-none">Identificador
+									de la agrupaci&oacute;n</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Tipo
+								c&aacute;lculo:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[TC]"> <span class="help-block m-b-none">Identificador
+									del tipo de c&aacute;lculo</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Forma de pago:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="DG[FP]"> <span class="help-block m-b-none">Identificador
+									de la forma de pago</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Clave:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[CVEVEH]]"> <span
+									class="help-block m-b-none">Clave Vehicular</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Modelo:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[MOD]]"> <span
+									class="help-block m-b-none">A&ntilde;o del modelo</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Paquete:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[PAQ]]"> <span
+									class="help-block m-b-none">Identificador del paquete:</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Estado:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[EDO]]"> <span
+									class="help-block m-b-none">Identificador del estado</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Municipio:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[MUN]]"> <span
+									class="help-block m-b-none">Identificador del municipio:</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Servicio:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[SERV]]"> <span
+									class="help-block m-b-none">Identificador del servicio
+									del veh&iacute;culo</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Uso:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[USO]]"> <span
+									class="help-block m-b-none">Identificador del uso del
+									veh&iacute;culo</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Deducible:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[TDED]]"> <span
+									class="help-block m-b-none">Identificador del tipo de
+									deducible</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Suma Asegurada:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[TSA]]"> <span
+									class="help-block m-b-none">Tipo de Suma Asegurada</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Descuento:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[PD]]"> <span
+									class="help-block m-b-none">Porcentaje de descuento</span>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label class="col-lg-2 control-label">Bonificaci&oacute;n:</label>
+							<div class="col-lg-10">
+								<input type="text" placeholder="" class="form-control"
+									name="INCISOS[INCISO[PB]]"> <span
+									class="help-block m-b-none">Porcentaje de
+									bonificaci&oacute;n</span>
+							</div>
+						</div>
+
+
+						<div class="form-group">
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-white" type="button"
+									onClick="toJSON()">Cotizar</button>
+							</div>
+							<div class="col-lg-offset-2 col-lg-10">
+								<button class="btn btn-sm btn-white" type="button">Guardar
+									Cotizaci&oacute;n</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-5">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Resultado de la cotizaci&oacute;n</h5>
+
+						<div ibox-tools></div>
+					</div>
+					<div class="ibox-content">
+						<form id="resultado" >
+			<div class="invoice-POS" id="comp0" style="display: none">
+
+				<center id="top">
+				 <div class="logo"></div>
+				</center>
+				<!--End InvoiceTop-->
+
+				<div id="mid">
+					<div class="info">
+						<h2>Datos del veh&iacute;culo</h2>
+						<p id="resCOTID">ID Cotizaci&oacute;n: </p> 
+						<p id="resVERID">Versi&oacute;n: </p>
+						<p id="resCVEVEH">Clave Vehicular: </p>
+						<p id="resDESC">Descripci&oacute;n: </p>
+					</div>
+				</div>
+				<!--End Invoice Mid-->
+
+				<div id="bot">
+
+					<div id="table">
+						<table>
+							<tr class="tabletitle">
+								<td class="item"><h2>Concepto</h2></td>
+								<td class="Hours"><h2></h2></td>
+								<td class="Rate"><h2>Sub Total</h2></td>
+							</tr>
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Prima Neta</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resPNETA"></p></td>
+							</tr>
+							
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">Recargo</p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resREC"></p></td>
+							</tr>
+							
+
+							<tr class="service">
+								<td class="tableitem"><p class="itemtext">IVA </p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resIVA"></p></td>
+							</tr>
+							
+							<tr class="tabletitle">
+								<td class="tableitem"><p class="itemtext">Descuento </p></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="tableitem"><p class="itemtext" id="resDTO"></p></td>
+							</tr>
+
+							<tr class="tabletitle">
+								
+								<td class="Rate"><h2>Total </h2></td>
+								<td class="tableitem"><p class="itemtext"></p></td>
+								<td class="payment"><h2 id="resPTOTAL"></h2></td>
+							</tr>
+
+						</table>
+						
+					</div>
+					<!--End Table-->
+				</div>
+				<!--End InvoiceBot-->
+			</div>
+			<!--End Invoice-->
+		</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-5">
+				<div class="ibox float-e-margins">
+					<div class="ibox-title">
+						<h5>Cotizaciones Guardadas</h5>
+
+						<div ibox-tools></div>
+					</div>
+					<div class="ibox-content"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+function toJSON() {
+	if($('input:text').filter(function(){
+	    return !$(this).val();
+	}).length == 0){
+	$('#btnSubmit').text('Procesando...');
+	var x = $('#formulario').serializeJSON();
+	var data = JSON.stringify(x);
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("POST", "service/cotizar", false);
+	xhttp.setRequestHeader("Content-type", "application/json");
+	/*xhttp.onreadystatechange = function () {
+	    if (xhttp.readyState === 4 && xhttp.status === 200) {
+	    	alert("complete!");
+	        var json = JSON.parse(xhttp.responseText);
+	        alert(JSON.stringify(json));
+	    }
+	};*/
+	xhttp.send(data);
+	var jsonV = JSON.parse(xhttp.responseText); 
+	$('.group').hide();
+	$('.btn-box').hide();
+	$('#btnVolver').show();
+	$('#headerText').text("Verifique su cotizaci&oacute;n");
+	$('.invoice-POS').show(); $('.invoice-POS-1').show(); $('.invoice-POS-2').show();
+	$('#resCOTID').text("ID Cotizaci&oacute;n:   "+jsonV.COTID);
+	$('#resVERID').text("Versi&oacute;n:   "+jsonV.VERID);
+	$('#resCVEVEH').text("Clave Vehicular:   "+jsonV.incisos.inciso.cveveh);
+	$('#resDESC').text("Descripci&oacute;n:   "+jsonV.incisos.inciso.desc);
+	$('#resPNETA').text("$"+jsonV.PNETA);
+	$('#resDTO').text(jsonV.DTO+"%");
+	$('#resPTOTAL').text("$"+jsonV.PTOTAL);
+	$('#resIVA').text("$"+jsonV.IVA);
+	$('#resREC').text("$"+jsonV.REC);
+	
+	$('#btnSubmit').text('Cotizar');
+	}
+	else{
+		alert("Por favor llene todos los campos.");
+
+	}
+}
+
+	function datosEjemplo() {
+		document.getElementsByName("DG[NEG]")[0].value = "6505";
+		document.getElementsByName("DG[AGE]")[0].value = "91351";
+		document.getElementsByName("DG[CON]")[0].value = "0";
+		document.getElementsByName("DG[TAR]")[0].value = "141";
+		document.getElementsByName("DG[INIVIG]")[0].value = "2017-12-11";
+		document.getElementsByName("DG[FINVIG]")[0].value = "2018-12-11";
+		document.getElementsByName("DG[TS]")[0].value = "2";
+		document.getElementsByName("DG[AGRUPA]")[0].value = "32310";
+		document.getElementsByName("DG[TC]")[0].value = "2";
+		document.getElementsByName("DG[FP]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[CVEVEH]]")[0].value = "010101004002";
+		document.getElementsByName("INCISOS[INCISO[MOD]]")[0].value = "2015";
+		document.getElementsByName("INCISOS[INCISO[PAQ]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[EDO]]")[0].value = "9";
+		document.getElementsByName("INCISOS[INCISO[MUN]]")[0].value = "86";
+		document.getElementsByName("INCISOS[INCISO[USO]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[TDED]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[TSA]]")[0].value = "1";
+		document.getElementsByName("INCISOS[INCISO[PD]]")[0].value = "0";
+		document.getElementsByName("INCISOS[INCISO[PB]]")[0].value = "0";
+		document.getElementsByName("INCISOS[INCISO[SERV]]")[0].value = "1";
+	}
+	
+	function limpiar() {
+		$("input:text").val("");
+	}
+
+	function volver() {
+		$('.group').show();
+		$('.btn-box').show();
+		$('#btnVolver').hide();
+		$('#headerText').text(
+				"Ingrese la información solicitada en el formulario");
+		$('.invoice-POS').hide();
+		$('.invoice-POS-2').hide();
+		$('.invoice-POS-2').hide();
+	}
+</script>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Cotización</title>
+<style>
+.invoice-POS {
+  box-shadow: 0 0 1in -0.25in rgba(0, 0, 0, 0.5);
+  padding: 2mm;
+  margin: 0 auto;
+  width: 75mm;
+  background: #C0C0C0;
+}
+
+.invoice-POS ::selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+.invoice-POS ::moz-selection {
+  background: #f31544;
+  color: #FFF;
+}
+
+.invoice-POS h1 {
+  font-size: 1.5em;
+  color: #222;
+}
+
+.invoice-POS h2 {
+  font-size: 1.2em;
+}
+
+.invoice-POS h3 {
+  font-size: 1.2em;
+  font-weight: 300;
+  line-height: 2em;
+}
+
+.invoice-POS p {
+  font-size: .7em;
+  color: #666;
+  line-height: 1.2em;
+}
+
+.invoice-POS #top, .invoice-POS #mid, .invoice-POS #bot {
+  /* Targets all id with 'col-' */
+  border-bottom: 1px solid #EEE;
+}
+
+.invoice-POS #top {
+  min-height: 100px;
+}
+
+.invoice-POS #mid {
+  min-height: 80px;
+}
+
+.invoice-POS #bot {
+  min-height: 50px;
+}
+
+#comp0 #top .logo {
+  height: 60px;
+  width: 60px;
+  background: url(https://www.autocompara.com/ExpressoAutoCompara/images/aseg/logo-aba-seguros01.png) no-repeat;
+  background-size: 70px 70px;
+}
+
+#comp1 #top .logo {
+  height: 42px;
+  width: 68px;
+  background: url(http://generic.com.sg/wp-content/uploads/2015/06/Generic-Logo-Horizontal-FA-01.png) no-repeat;
+  background-size: 68px 42px;
+}
+
+#comp2 #top .logo {
+  height: 21px;
+  width: 68px;
+  background: url(http://helporganizemybusiness.com/wp-content/uploads/2017/06/generic-logo.png) no-repeat;
+  background-size: 68px 21px;
+}
+
+.invoice-POS .clientlogo {
+  float: left;
+  height: 60px;
+  width: 60px;
+  background: url(../assets/logos/aba-seguros.png) no-repeat;
+  background-size: 60px 60px;
+  border-radius: 50px;
+}
+
+.invoice-POS .info {
+  display: block;
+  margin-left: 0;
+}
+
+.invoice-POS .title {
+  float: right;
+}
+
+.invoice-POS .title p {
+  text-align: right;
+}
+
+.invoice-POS table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoice-POS .tabletitle {
+  font-size: .5em;
+  background: #EEE;
+}
+
+.invoice-POS .service {
+  border-bottom: 1px solid #EEE;
+}
+
+.invoice-POS .item {
+  width: 24mm;
+}
+
+.invoice-POS .itemtext {
+  font-size: .8em;
+}
+
+.invoice-POS #legalcopy {
+  margin-top: 5mm;
+}
+
+</style>
+<style>
+@import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700")
+	;
+
+*, :before, :after {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+body {
+	background: #424242;
+	font-family: 'Lato';
+}
+
+form {
+	width: 320px;
+	margin: 45px auto;
+}
+
+form h1 {
+	font-size: 3em;
+	font-weight: 300;
+	text-align: center;
+	color: #2196F3;
+}
+
+form h5 {
+	text-align: center;
+	text-transform: uppercase;
+	color: #c6c6c6;
+}
+
+form hr.sep {
+	background: #2196F3;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	height: 2px;
+	width: 25%;
+	margin: 0px auto 45px auto;
+}
+
+form .emoji {
+	font-size: 1.2em;
+}
+
+.group {
+	position: relative;
+	margin: 45px 0;
+}
+
+textarea {
+	resize: none;
+}
+
+input, textarea {
+	background: none;
+	color: #c6c6c6;
+	font-size: 18px;
+	padding: 10px 10px 10px 5px;
+	display: block;
+	width: 320px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #c6c6c6;
+}
+
+input:focus, textarea:focus {
+	outline: none;
+}
+
+input:focus ~ label, input:valid ~ label, textarea:focus ~ label,
+	textarea:valid ~ label {
+	top: -14px;
+	font-size: 12px;
+	color: #2196F3;
+}
+
+input:focus ~ .bar:before, textarea:focus ~ .bar:before {
+	width: 320px;
+}
+
+input[type="password"] {
+	letter-spacing: 0.3em;
+}
+
+label {
+	color: #c6c6c6;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 5px;
+	top: 10px;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
+}
+
+.bar {
+	position: relative;
+	display: block;
+	width: 320px;
+}
+
+.bar:before {
+	content: '';
+	height: 2px;
+	width: 0;
+	bottom: 0px;
+	position: absolute;
+	background: #2196F3;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
+	left: 0%;
+}
+
+.btn {
+	background: #fff;
+	color: #959595;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 3px;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	text-decoration: none;
+	outline: none;
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px
+		rgba(0, 0, 0, 0.24);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	-webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn:hover {
+	color: #8b8b8b;
+	-webkit-box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px
+		rgba(0, 0, 0, 0.12);
+	box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px
+		rgba(0, 0, 0, 0.12);
+}
+
+.btn.btn-link {
+	background: #2196F3;
+	color: #d3eafd;
+}
+
+.btn.btn-link:hover {
+	background: #0d8aee;
+	color: #deeffd;
+}
+
+.btn.btn-submit {
+	background: #2196F3;
+	color: #bce0fb;
+}
+
+.btn.btn-submit:hover {
+	background: #0d8aee;
+	color: #deeffd;
+}
+
+.btn.btn-cancel {
+	background: #eee;
+}
+
+.btn.btn-cancel:hover {
+	background: #e1e1e1;
+	color: #8b8b8b;
+}
+
+.btn-box {
+	text-align: center;
+	margin: 50px 0;
+}
+</style>
+
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<form id="formulario">
+			<h1>Bienvenido</h1>
+			<h5 id="headerText">Seleccione el producto que desea cotizar</h5>
+			<table align="center">
+			<tr>
+			<td><a href="auto.html"><img src="auto.png" height="180" width="180"/></a></td>
+			<td><a href="hogar.html"><img src="casa.png" height="180" width="180"/></a></td>
+			</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>
